@@ -1060,8 +1060,8 @@
     <div class="footer-ad">
         <h3>Publicité - Gagnez avec nous S'affiche ici 👇🏼</h3>
         <div style="max-width: 640px; margin: auto; text-align: center;">
-            <!-- JUSTE LA BALISE ADMAVEN - PAS DE JAVASCRIPT -->
-            <meta name='admaven-placement' content=''>
+            <!-- CONTENEUR PADMAVEN -->
+            <div id="admaven-ad-container"></div>
             
             <p style="margin-top: 10px; font-size: 14px; color: #666;">
                 Publicités par Collaboration 
@@ -1069,6 +1069,8 @@
         </div>
     </div>
 </footer>
+
+
         
 <div style="display: flex; align-items: center; gap: 10px; background: linear-gradient(to right, #000000, #333); 
             padding: 12px 20px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
@@ -1170,7 +1172,17 @@
     <div id="alertModal" class="modal">
         <span id="alertMessage"></span>
     </div>
-    
+   <!-- SCRIPT ADMAVEN - METS CE CODE À LA FIN DE TON SITE -->
+<script type="text/javascript">
+    var admaven_placement_id = "Bqja5pjUF";
+    (function() {
+        var script = document.createElement('script');
+        script.src = 'https://ads.admaven.com/server/static/ads.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        document.getElementById('admaven-ad-container').appendChild(script);
+    })();
+</script> 
 <script>
 // Ouvrir et fermer le modal du panier
 document.getElementById('openCartButton').onclick = function() {
