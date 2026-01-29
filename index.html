@@ -1,1361 +1,3049 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Balises meta essentielles -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-<meta name='admaven-placement' content=Bqja5pjUF>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-03F15545FM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-03F15545FM');
-</script>
-<!-- Balise titre optimisée -->
-<title>H.D.S SHOP - Achetez des produits uniques</title>
-
-<!-- Meta description -->
-<meta name="description" content="Découvrez H.D.S SHOP, votre boutique en ligne proposant une large gamme de produits : boissons, accessoires, et plus encore. Livraison rapide et satisfaction garantie !">
-
-<!-- Balises meta robots -->
-<meta name="robots" content="index, follow">
-
-<!-- Balise viewport pour le responsive -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://web-site13015.github.io/H_D_S-SHOP/">
-
-<!-- Balises Open Graph (pour les réseaux sociaux) -->
-<meta property="og:title" content="H.D.S SHOP - Achetez des produits uniques">
-<meta property="og:description" content="Découvrez H.D.S SHOP, votre boutique en ligne proposant une large gamme de produits : boissons, accessoires, et plus encore. Livraison rapide et satisfaction garantie !">
-<meta property="og:image" content="https://mcusercontent.com/40a9f1a77d46874eba2309d88/images/89a59702-cad3-dfb7-580d-22fb843f8d3f.jpeg">
-<meta property="og:url" content="https://web-site13015.github.io/H_D_S-SHOP/">
-<meta property="og:type" content="website">
-
-<!-- Liens pour les polices et Font Awesome -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="https://kit.fontawesome.com/90a4d1138d.js" crossorigin="anonymous"></script>
-
-
+    <!-- Meta Admaven -->
+    <meta name='admaven-placement' content="Bqja5pjUF">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-03F15545FM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-03F15545FM');
+    </script>
+    
+    <!-- SEO Optimisé -->
+    <title>H.D.S SHOP - Boutique Premium Lifestyle & Catering | Marseille</title>
+    <meta name="description" content="H.D.S SHOP - Votre boutique premium lifestyle nocturne à Marseille. Boissons énergisantes, accessoires, kits soirée, repas d'entreprise et catering événements.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-site13015.github.io/H_D_S-SHOP/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="H.D.S SHOP - Boutique Premium Lifestyle & Catering">
+    <meta property="og:description" content="Votre partenaire lifestyle nocturne à Marseille. Produits premium, repas d'entreprise, catering événements, livraison 24h/24 avec suivi en temps réel.">
+    <meta property="og:image" content="https://mcusercontent.com/40a9f1a77d46874eba2309d88/images/89a59702-cad3-dfb7-580d-22fb843f8d3f.jpeg">
+    <meta property="og:url" content="https://web-site13015.github.io/H_D_S-SHOP/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Liens ressources externes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/90a4d1138d.js" crossorigin="anonymous"></script>
+    
+    <!-- Leaflet pour la carte -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+    
     <style>
-        /* Police Bungee Spice */
-        @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #333;
-            font-family: 'Roboto', sans-serif;
+        /* === RESET & BASE STYLES === */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
-        html, body {
-            overflow-y: auto;
+        
+        :root {
+            --primary-yellow: #FFD700;
+            --primary-gold: #FFC107;
+            --primary-black: #000000;
+            --primary-white: #FFFFFF;
+            --dark-bg: #0A0A0A;
+            --card-bg: #111111;
+            --gray-100: #F5F5F5;
+            --gray-200: #EEEEEE;
+            --gray-300: #E0E0E0;
+            --gray-400: #BDBDBD;
+            --gray-500: #9E9E9E;
+            --gray-600: #757575;
+            --gray-700: #616161;
+            --gray-800: #424242;
+            --gray-900: #212121;
+            
+            --accent-red: #FF5252;
+            --accent-green: #4CAF50;
+            --accent-blue: #2196F3;
+            --accent-purple: #9C27B0;
+            --accent-pink: #E91E63;
+            --accent-orange: #FF9800;
+            --accent-cyan: #00BCD4;
+            
+            --success: #00C853;
+            --warning: #FFAB00;
+            --error: #FF3D00;
+            --info: #2979FF;
+            
+            --shadow-xs: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.08);
+            --shadow-md: 0 6px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 10px 28px rgba(0,0,0,0.16);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+            --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.3);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+            
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --container-max: 450px;
+            --header-height: 64px;
         }
-        .profile-container {
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
-        .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #ffeb3b;
-            margin: 10px auto;
-            object-fit: cover;
-            cursor: pointer;
-        }
-        .star {
-            width: 25px;
-            height: 25px;
-            position: absolute;
-            top: 101px;
-            left: 60%;
-            transform: translate(-50%, 0);
-            background-color: #ffeb3b;
-            border-radius: 50%;
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: var(--gray-100);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .star::before {
+        
+        /* === MAIN CONTAINER === */
+        .main-container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .profile-container {
+            background: var(--card-bg);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .profile-container::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #000;
-            clip-path: polygon(
-                50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
-                50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--primary-yellow), 
+                var(--accent-orange),
+                var(--primary-yellow)
             );
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
         }
-        .username {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin: 10px 0;
+        
+        /* === PREMIUM HEADER === */
+        .premium-header {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            padding: 32px 24px 24px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        .status {
-            font-size: 16px;
-            color: #777;
-            margin-bottom: 15px;
+        
+        .premium-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .profile-image-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 24px;
+            z-index: 2;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--primary-yellow);
+            object-fit: cover;
+            background: var(--gray-900);
+            box-shadow: 
+                0 0 0 1px rgba(0,0,0,0.8),
+                0 8px 32px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+            transition: var(--transition-normal);
             cursor: pointer;
         }
-        .bungee-spice {
-            font-family: "Bungee Spice", cursive;
+        
+        .profile-image:hover {
+            transform: scale(1.03);
+            box-shadow: 
+                0 0 0 1px rgba(0,0,0,0.8),
+                0 12px 40px rgba(255, 215, 0, 0.3),
+                inset 0 0 30px rgba(255, 215, 0, 0.15);
         }
+        
+        .star {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-yellow), #FFC107);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 
+                0 4px 12px rgba(255, 215, 0, 0.3),
+                0 0 0 3px rgba(0,0,0,0.8);
+            border: 2px solid #000;
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+        
+        .star::before {
+            content: '★';
+            color: var(--primary-black);
+            font-size: 22px;
+            font-weight: 900;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* === PREMIUM BRANDING === */
+        .premium-branding {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand-main {
+            font-family: 'Bungee Spice', cursive;
+            font-size: 42px;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 12px rgba(255, 119, 0, 0.4);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #FFD700, #FF9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brand-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--gray-400);
+            letter-spacing: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .brand-tagline {
+            font-size: 15px;
+            color: var(--primary-yellow);
+            font-weight: 500;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+        
+        .premium-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: var(--primary-yellow);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* === ENHANCED STATUS === */
+        .status {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            margin: 20px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .status:hover {
+            background: rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .status-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-yellow);
+            font-family: 'Bungee Spice', cursive;
+        }
+        
+        /* === TOGGLE BUTTONS === */
         .toggle-button {
+            background: linear-gradient(135deg, var(--primary-yellow), #FF9800);
+            color: var(--primary-black);
+            border: none;
+            border-radius: var(--radius-lg);
+            padding: 18px 24px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: #ffeb3b;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
+            justify-content: space-between;
+            width: calc(100% - 48px);
+            margin: 16px 24px;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .toggle-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
         .toggle-button:hover {
-            background-color: #ffdb00;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
-        .toggle-button span {
-            margin-left: 8px;
+        
+        .toggle-button:hover::after {
+            animation: shimmer 1.5s infinite;
         }
+        
+        .toggle-button.active span:last-child {
+            transform: rotate(180deg);
+        }
+        
+        /* === CONTENT SECTIONS === */
         .content-section {
             display: none;
-            border-top: 1px solid #ddd;
-            margin-top: 15px;
-            padding-top: 10px;
-            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            margin: 16px 24px;
+            animation: slideDown 0.4s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .content-title {
-            font-weight: bold;
-            color: #6200ea;
-            margin-bottom: 5px;
+        
+        .content-section.active {
+            display: block;
         }
-        #storeIcon {
-            font-size: 90px;
-            background: linear-gradient(to bottom, #FF6347 50%, #1E90FF 50%);
-            -webkit-background-clip: text;
-            color: transparent;
-            cursor: pointer;
-            transition: transform 0.3s, filter 0.3s;
+        
+        /* === SHOP PROFILE === */
+        .shop-profile {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            margin: 0;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        #storeIcon:hover {
-            transform: scale(1.2);
-            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
-        }
-        .follow-button {
-            display: inline-block;
-            background-color: #ffeb3b;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .follow-button:hover {
-            background-color: #ffe600;
-        }
-        .shop-section {
-            display: none;
-            margin-top: 48px;
-        }
-        .product {
-            background: #f1f1f1;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .product img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
-            border-radius: 5px;
-        }
-        .product-price {
-            color: #4CAF50;
-            font-weight: bold;
-            margin: 5px 0;
-        }
-        .product-actions {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
-        }
-        .quantity-selector button {
-            width: 25px;
-            height: 25px;
-            background-color: #ffeb3b;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .quantity-selector input {
-            width: 40px;
+        
+        .shop-name {
+            font-family: 'Bungee Spice', cursive;
+            font-size: 28px;
+            margin-bottom: 12px;
             text-align: center;
-            margin: 0 5px;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.4);
         }
-        .buy-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            cursor: pointer;
-            flex-grow: 1;
-        }
-        .buy-button:hover {
-            background-color: #45a049;
-        }
-        .checkout-button {
-            background-color: orange;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
+        
+        .shop-tag {
+            font-size: 14px;
+            color: var(--gray-300);
+            margin-bottom: 20px;
             text-align: center;
-            margin-top: 15px;
-            width: 100%;
-            border: none;
-            transition: background-color 0.3s;
+            line-height: 1.5;
         }
-        .checkout-button:hover {
-            background-color: #e59400;
+        
+        .shop-features {
+            margin: 20px 0;
+            display: grid;
+            gap: 10px;
         }
-        .form-container {
-            display: none;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .form-container input,
-        .form-container textarea,
-        .form-container select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 8px 0;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group h4 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .payment-method {
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
             display: flex;
             align-items: center;
-            margin: 8px 0;
+            gap: 10px;
+            border-left: 4px solid var(--primary-yellow);
+            transition: var(--transition-fast);
         }
-        .delivery-option {
+        
+        .feature:hover {
+            background: rgba(255, 215, 0, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .shop-footer {
             display: flex;
-            align-items: center;
-            margin: 8px 0;
-        }
-        #deliveryTimeContainer {
-            margin-top: 10px;
-            display: none;
-        }
-        #cartModal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 320px;
-            max-width: 90%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-    
-    
-    #alertModal {
-  display: none; /* Masqué par défaut */
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #FFA500; /* Vert clair, signale une réussite */
-  color: white;
-  padding: 15px 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1200;
-  max-width: 90%;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-#alertModal.show {
-  display: block;
-}
-
-#alertModal #alertMessage {
-  display: inline-block;
-}
-
-        #openCartButton {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ffeb3b;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            font-size: 24px;
-        }
-        #cartCount {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            gap: 15px;
             font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: var(--gray-400);
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
-        .cart-item {
+        
+        /* === DELIVERY TRACKER === */
+        .delivery-tracker {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 152, 0, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            margin: 24px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .delivery-tracker::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .tracker-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
         }
-        .cart-item button {
-            background-color: #ff4444;
+        
+        .tracker-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tracker-status {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .tracker-map-container {
+            height: 250px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .tracker-map {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .driver-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .driver-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
             color: white;
-            border: none;
-            border-radius: 3px;
-            padding: 3px 8px;
-            cursor: pointer;
-        }
-        .cart-total {
-            font-weight: bold;
-            margin-top: 10px;
-            text-align: right;
             font-size: 18px;
         }
         
-        .client-count {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-weight: bold;
+        .driver-details {
+            flex: 1;
+        }
+        
+        .driver-name {
+            font-weight: 600;
+            color: var(--primary-white);
+            margin-bottom: 4px;
+        }
+        
+        .driver-eta {
+            font-size: 14px;
+            color: var(--primary-yellow);
+            font-weight: 500;
+        }
+        
+        /* === FILTER BUTTONS === */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+            border-radius: var(--radius-full);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .filter-btn.active {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+            color: var(--primary-yellow);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* === PREMIUM PRODUCTS === */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .product {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-unavailable {
+            opacity: 0.7;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        
+        .category-repas {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .category-catering {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+            border: 1px solid rgba(33, 150, 243, 0.3);
+        }
+        
+        .category-alimentation {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9C27B0;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+        
+        .category-boissons {
+            background: rgba(0, 188, 212, 0.2);
+            color: #00BCD4;
+            border: 1px solid rgba(0, 188, 212, 0.3);
+        }
+        
+        .category-alcools {
+            background: rgba(233, 30, 99, 0.2);
+            color: #E91E63;
+            border: 1px solid rgba(233, 30, 99, 0.3);
+        }
+        
+        .category-accessoires {
+            background: rgba(255, 152, 0, 0.2);
+            color: #FF9800;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .unavailable-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 82, 82, 0.2);
+            color: #FF5252;
+            padding: 6px 15px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 12px;
+            z-index: 2;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(255, 82, 82, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-name {
+            font-family: 'Bungee Spice', cursive;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        
+        .product-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            margin-bottom: 16px;
             text-align: center;
         }
-        /* Style pour le zoom de l'image produite */
-        .image-modal {
-            display: none; /* Masqué par défaut */
+        
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+        
+        .quantity-selector {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .quantity-btn:hover {
+            background: rgba(255, 215, 0, 0.3);
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 36px;
+            text-align: center;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .buy-button {
+            flex: 2;
+            height: 36px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        .buy-button:hover {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .buy-button:disabled {
+            background: var(--gray-600);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .product-description {
+            font-size: 13px;
+            color: var(--gray-400);
+            line-height: 1.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        /* === FOLLOW DELIVERY BUTTON === */
+        .follow-delivery-button {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: var(--primary-white);
+            border: none;
+            border-radius: var(--radius-lg);
+            padding: 18px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: calc(100% - 48px);
+            margin: 16px 24px;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .follow-delivery-button:hover {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .follow-delivery-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .follow-delivery-button:hover::after {
+            animation: shimmer 1.5s infinite;
+        }
+        
+        /* === CART BUTTON === */
+        .cart-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-yellow), #FF9800);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            transition: var(--transition-normal);
+            border: 3px solid var(--card-bg);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .cart-button:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.4);
+            animation: none;
+        }
+        
+        .cart-button i {
+            font-size: 28px;
+            color: var(--primary-black);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: linear-gradient(135deg, var(--accent-red), #FF5252);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--card-bg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* === MODALS === */
+        .modal-overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease-out;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1001;
         }
-        .image-modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
+        
+        .premium-modal {
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            border-radius: var(--radius-2xl);
+            width: 100%;
+            max-width: 450px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
-    
-    .bungee-spice {
-    font-family: "Bungee Spice", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-                
-.footer-video {
-    text-align: center;
+        
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--primary-white);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 24px;
+        }
+        
+        /* === CART MODAL === */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-name {
+            flex: 2;
+            font-weight: 500;
+            color: var(--primary-white);
+        }
+        
+        .cart-item-quantity {
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-white);
+        }
+        
+        .cart-item-price {
+            flex: 1;
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary-yellow);
+        }
+        
+        .cart-item-remove {
+            background: rgba(255, 82, 82, 0.2);
+            color: #FF5252;
+            border: 1px solid rgba(255, 82, 82, 0.3);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-fast);
+        }
+        
+        .cart-item-remove:hover {
+            background: rgba(255, 82, 82, 0.3);
+        }
+        
+        .cart-total {
+            font-size: 28px;
+            font-weight: 900;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+        }
+        
+        .checkout-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--accent-orange), #FF5722);
+            color: var(--primary-white);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: var(--transition-normal);
+        }
+        
+        .checkout-button:hover {
+            background: linear-gradient(135deg, #FF5722, var(--accent-orange));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4);
+        }
+        
+        /* === CHECKOUT FORM === */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gray-300);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--primary-white);
+            font-size: 15px;
+            transition: var(--transition-fast);
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .radio-option:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-yellow);
+        }
+        
+        .radio-option label {
+            flex: 1;
+            color: var(--primary-white);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        /* === CONFIRMATION MODAL === */
+        .confirmation-code {
+            font-size: 48px;
+            font-weight: 900;
+            text-align: center;
+            color: var(--primary-yellow);
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: var(--radius-lg);
+            border: 3px dashed var(--primary-yellow);
+            letter-spacing: 5px;
+        }
+        
+        .confirmation-instruction {
+            text-align: center;
+            color: var(--gray-400);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-
-        .content-section {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 24px;
-  background: #f9f9f9;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.content-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1f2d3d;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  text-align: center;
-  border-bottom: 2px solid #ddd;
-}
-
-.details {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-.details span {
-  font-weight: bold;
-  color: #000;
-}
-
-
-
-.details {
-  color: #2980b9;  /* Livraison gratuite color */
-  font-weight: 600;
-}
-
-.details{
-  color: #e67e22;  /* Frais de livraison color */
-  font-style: italic;
-}
-
-/* Style pour le Nom de la boutique */
-.details:nth-child(2) {
-  color: #2980b9;  /* Bleu pour le nom de la boutique */
-  font-weight: 600;
-}
-
-/* Style pour les évaluations */
-.details:nth-child(3) {
-  color: #333;  /* Jaune pour les évaluations */
-  font-weight: 700;
-}
-
-/* Style des étoiles dans les évaluations */
-.details:nth-child(3) span {
-  color: #f39c12;  /* Jaune pour les étoiles */
-}
-
-.details:nth-child(3)::before {
-  content: "★★★★★";
-  color: #f39c12;  /* Jaune pour les étoiles */
-  margin-right: 5px;
-}
-
-/* Ajustement global des marges et espacements */
-.details,
-.client-count {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.details:nth-child(2),
-.details:nth-child(3),
-.details:nth-child(6),
-.details:nth-child(7) {
-  text-align: left; /* Alignement des éléments à gauche */
-}
-
-.details:nth-child(3) {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.details:nth-child(3)::before {
-  font-size: 18px;
-  margin-right: 10px; /* Espacement entre les étoiles et le texte */
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        /* Conteneur principal */
-.hds-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 15px;
-    padding: 12px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-/* Élément "Livraison express" */
-.delivery-badge {
-    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-    border: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.delivery-badge::before {
-    content: "⚡";
-    font-size: 16px;
-    color: #ffc107;
-}
-
-/* Animation hover */
-.delivery-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-/* Conteneur principal */
-.shop-profile {
-    max-width: 280px;
-    padding: 20px;
-    background: #111;
-    border-radius: 10px;
-    border: 1px solid #333;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    text-align: center; /* Centrage du texte */
-    margin: 0 auto; /* Centrage horizontal */
-}
-
-/* Titre de la boutique */
-.shop-name {
-    font-family: 'Bungee', cursive;
-    font-size: 26px;
-    color: #ffeb3b;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px rgba(255, 235, 59, 0.3);
-}
-
-/* Slogan ou tagline */
-.shop-tag {
-    font-size: 13px;
-    color: #aaa;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-/* Section des fonctionnalités */
-.shop-features {
-    margin-bottom: 15px;
-}
-
-/* Chaque fonctionnalité */
-.feature {
-    font-size: 13px;
-    padding: 8px;
-    background: #222;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    display: inline-block; /* Alignement en ligne */
-    text-align: left; /* Texte aligné à gauche */
-    width: 90%; /* Largeur ajustée */
-}
-
-/* Pied de page */
-.shop-footer {
-    font-size: 12px;
-    color: #ddd;
-    display: flex;
-    justify-content: center; /* Centrage horizontal */
-    gap: 10px;
-}
-
-
-     /* Flèche ajustée */
-.arrow {
-    font-size: 20px; /* Flèche plus grosse */
-    color: #000; /* Couleur noire pour la flèche */
-    animation: bounce 1s infinite;
-}
-
-/* Animation de la flèche */
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(3px); }
-}
-
-/* Effet hover */
-.shop-toggle:hover {
-    background: #ffd600;
-    transform: scale(1.05);
-}
-    
-    
-
-
-        .product-unavailable {
-    position: relative;
-    opacity: 0.5;
-}
-
-.unavailable-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #e53935;
-    color: white;
-    padding: 6px 18px;
-    border-radius: 16px;
-    font-weight: bold;
-    font-size: 14px;
-    z-index: 2;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 
+                    0 4px 12px rgba(255, 215, 0, 0.3),
+                    0 0 0 3px rgba(0,0,0,0.8);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 
+                    0 4px 20px rgba(255, 215, 0, 0.5),
+                    0 0 0 3px rgba(0,0,0,0.8),
+                    0 0 20px rgba(255, 215, 0, 0.3);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 480px) {
+            .profile-image-wrapper {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .brand-main {
+                font-size: 36px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-button {
+                width: 64px;
+                height: 64px;
+                bottom: 24px;
+                right: 24px;
+            }
+            
+            .toggle-button, .follow-delivery-button {
+                margin: 16px;
+                width: calc(100% - 32px);
+            }
+            
+            .content-section, .delivery-tracker, .shop-profile {
+                margin: 16px;
+                padding: 20px;
+            }
+            
+            .tracker-map-container {
+                height: 220px;
+            }
+            
+            .product-image {
+                height: 140px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .brand-main {
+                font-size: 32px;
+            }
+            
+            .filter-buttons {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 8px;
+            }
+        }
+        
+        /* === UTILITY CLASSES === */
+        .hidden {
+            display: none !important;
+        }
+        
+        .visible {
+            display: block !important;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-10 {
+            margin-top: 10px;
+        }
+        
+        .mt-20 {
+            margin-top: 20px;
+        }
+        
+        .mt-30 {
+            margin-top: 30px;
+        }
+        
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        /* === SCROLLBAR STYLING === */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-yellow), #FF9800);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(#FF9800, var(--primary-yellow));
+        }
     </style>
 </head>
 <body>
-<div class="profile-container">
-    <img src="https://mcusercontent.com/40a9f1a77d46874eba2309d88/images/89a59702-cad3-dfb7-580d-22fb843f8d3f.jpeg" alt="Photo de Profil" class="profile-image" id="profileImage">
-    <div class="star"></div> 
-   <div style="display: flex; align-items: center; gap: 12px; 
-            background: #000;
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: 1px solid #ffeb3b;
-            box-shadow: 0 0 20px #ffeb3b33;
-            position: relative;
-            overflow: hidden;
-            width: fit-content;">
-    
-    <!-- Effet brillance dynamique -->
-    <div style="position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 235, 59, 0.2),
-                    transparent
-                );
-                animation: shine 4s infinite;
-                z-index: 1;"></div>
-    
-    <!-- Contenu original (z-index plus élevé) -->
-    <div style="display: flex; align-items: center; gap: 12px; z-index: 2;">
-        <!-- Icône shopping -->
-        <span style="font-size: 36px; 
-                   color: #ffeb3b;
-                   filter: drop-shadow(0 0 5px #ffeb3b80);">🛍️</span>
-        
-        <!-- Texte principal -->
-        <div style="display: flex; flex-direction: column; line-height: 1;">
-            <span style="font-family: 'Bungee Spice', cursive; 
-                       font-size: 28px;
-                       text-shadow: 0 0 8px #ffeb3b40;">H.D.S</span>
-            <span style="font-family: 'Orbitron', sans-serif; 
-                       font-size: 16px; 
-                       color: white; 
-                       letter-spacing: 4px;
-                       text-shadow: 0 0 5px #ffffff40;">SHOP</span>
-        </div>
-        
-        <!-- Séparateur amélioré -->
-        <div style="height: 30px; 
-                   width: 1px; 
-                   background: linear-gradient(to bottom, 
-                                       transparent, 
-                                       #ffeb3b, 
-                                       transparent);
-                   margin: 0 10px;"></div>
-        
-        <!-- Badge premium -->
-        <span style="font-family: 'Arial Narrow', sans-serif; 
-                   font-size: 12px; 
-                   color: #ffeb3b;
-                   text-transform: uppercase;
-                   letter-spacing: 2px;
-                   font-weight: bold;
-                   text-shadow: 0 0 3px #ffeb3b40;">
-            Boutique Premium
-        </span>
-    </div>
-
-    <!-- Animation CSS -->
-    <style>
-        @keyframes shine {
-            0% { left: -100%; opacity: 0.6; }
-            20% { opacity: 1; }
-            100% { left: 100%; opacity: 0.6; }
-        }
-    </style>
-</div>
-
-    <div class="status bungee-spice" id="statusText">Bienvenue dans ma boutique !</div>
-    <div class="toggle-button" id="toggleDetails">
-        <span>Détails de la Boutique</span>
-        <span class="material-symbols-outlined">expand_more</span>
-    </div>
-
-<div id="delivery-notification" class="delivery-notification" style="display: none;">
-    <button onclick="closeNotification()" style="background: transparent; border: none; color: white; font-weight: bold; margin-right: 10px; font-size: 20px; cursor: pointer;">×</button>
-    <span>Livraison exclusivement sur <span style="color: red;">Marseille</span></span>
-</div>
-
-<style>
-    .delivery-notification {
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
-        font-weight: bold;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        border-radius: 25px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        width: 280px;
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-    }
-</style>
-
-<script>
-    // Affiche la notification après 5 secondes
-    setTimeout(function () {
-        const notif = document.getElementById("delivery-notification");
-        notif.style.display = "flex";
-
-        // Ferme automatiquement après 5 secondes d'affichage
-        setTimeout(function () {
-            notif.style.opacity = "0";
-        }, 5000);
-    }, 5000);
-
-    // Fermeture manuelle
-    function closeNotification() {
-        document.getElementById("delivery-notification").style.opacity = "0";
-    }
-</script>
-    
-    <div class="content-section" id="profileDetails">
-        
-        <div class="shop-profile">
-    <div class="shop-name">🗿HOLDEST🇯🇲  🛒SHOP</div>
-    <div class="shop-tag">Votre partenaire lifestyle nocturne</div>
-    <div class="shop-tag">
-  Livraison exclusivement sur <span style="color: red; font-weight: bold;">Marseille</span> et ses alentours
-    </div>
-    <div class="shop-features">
-        <div class="feature">🔋 Alimentations & Accessoires</div>
-        <div class="feature">🍾 Boissons Premium</div>
-        <div class="feature">🎉 Kits Soirée</div>
-    </div>
-    
-    <div class="shop-footer">
-        <span>🚀 Livraison 24h</span>
-        <span>•</span>
-        <span>🔐 Service Discret</span>
-    </div>
-</div>
-
-<!-- METS CE CODE OU TU VEUX DANS TON SITE -->
-
-<div id="admaven-ad-container"></div>
-<script type="text/javascript">
-    (function() {
-        var script = document.createElement('script');
-        script.src = 'https://ads.admaven.com/server/static/ads.js';
-        script.type = 'text/javascript';
-        script.async = true;
-        document.getElementById('admaven-ad-container').appendChild(script);
-    })();
-</script>
-
-        
-   <div class="details">Évaluations : ★★★★★ (4.8)</div>
-  <div class="details client-count" id="clientCount">Clients : 1 200+ satisfaits</div>
-  <div class="details">Livraison gratuite à partir de 30€</div>
-  <div class="details">Frais de livraison de 1€ à 2€ selon la distance</div>
-    </div>
-    <div class="content-section">
-        <div class="content-title">Dernière mise à jour</div>
-        <div class="last-updated">1er octobre 2024</div>
-    </div>
-    <!-- Icône storefront avec interaction -->
-    <div class="toggle-button" id="showShopButton">
-        <span class="material-symbols-outlined" id="storeIcon">storefront</span>
-     <span class="button-label">Voir la boutique</span>
-    <span class="arrow">👇🏻</span>
-    </div>
-    <!-- Section boutique -->
-    <div class="shop-section" id="shopSection">
-        <div class="content-title">Produits Disponibles</div>    
-       <!-- Produit 1 - Crème Deluxe -->      
-<div class="product product-unavailable"> <!-- Ajout de la classe product-unavailable -->
-    <span class="unavailable-badge">Indisponible</span> <!-- Badge rouge ajouté -->
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/bc49a018-064b-af44-b264-1f821d3f40e0.jpg" alt="Crème Deluxe Cobra" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Creme Deluxe</div>
-    <div class="product-price">€25.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Crème Deluxe', '25', this)">Acheter</button>
-    </div>
-    <p>Description : Une creme deluxe pourvotre soirée nocturne.</p>
-</div>
-
-
-     <!-- Produit 2 - Fast Gaz -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/d6ff08ad-78f0-2424-b67f-1a9f23db736c.jpeg" alt="Fast Gaz" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Fast Gaz</div>
-    <div class="product-price">€20.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Fast Gaz', '20', this)">Acheter</button>
-    </div>
-    <p>Description : Gaz rapide pour vos besoins quotidiens.</p>
-</div>
-
-<!-- Produit 3 - Canette de Coca -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/6a1f1093-3c42-4461-4910-e78105e654f3.jpeg" alt="Canette de Coca" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Canette de Coca</div>
-    <div class="product-price">€2.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Canette de Coca', '2', this)">Acheter</button>
-    </div>
-    <p>Description : Rafraîchissement classique dans une canette pratique.</p>
-</div>
-
-<!-- Produit 4 - Canette d'Oasis Tropical -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/a83ccfd9-060f-db68-18d5-b796f3f5004f.jpeg" alt="Canette d'Oasis Tropical" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Canette d'Oasis Tropical</div>
-    <div class="product-price">€2.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Canette d\'Oasis Tropical', '2', this)">Acheter</button>
-    </div>
-    <p>Description : Une boisson fruitée et rafraîchissante pour les chaudes journées.</p>
-</div>
-
-<!-- Produit 9 - Red Bull -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/6ccce169-be11-3066-d79b-4b2c89f44941.jpeg" alt="Red Bull" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Red Bull</div>
-    <div class="product-price">€3.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Red Bull', '3', this)">Acheter</button>
-    </div>
-    <p>Description : Une boisson énergisante pour rester tonique toute la journée.</p>
-</div>
-
-<!-- Produit 10 - Monster -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2cdecd84-a946-9f22-130f-214163db6ffd.jpeg" alt="Monster" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Monster</div>
-    <div class="product-price">€3.50</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Monster', '3.50', this)">Acheter</button>
-    </div>
-    <p>Description : Une boisson énergisante avec un goût unique pour les amateurs de sensations.</p>
-</div>
-
-<!-- Produit 11 - Tiger -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/e6007723-0835-44b4-33d6-e05c9a3deb2b.jpeg" alt="Tiger" onclick="showImage(this)">
-    <div class="product-name bungee-spice"> Crazy Tiger</div>
-    <div class="product-price">€4.50</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Tiger', '4.50', this)">Acheter</button>
-    </div>
-    <p>Description : Une boisson énergisante qui booste votre énergie à chaque gorgée.</p>
-</div>
-
-
-        
-<!-- Produit 5 - Alcool Vodka -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/f8d0504d-2c8a-189b-08f5-3b0f48964823.jpeg" alt="Alcool Vodka" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Alcool Vodka (70 cl)</div>
-    <div class="product-price">€19.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Alcool Vodka', '19', this)">Acheter</button>
-    </div>
-    <p>Description : Vodka de qualité supérieure pour vos soirées.</p>
-</div>
-
-<!-- Produit 1 - OCB Slim Noir -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/d24ccf63-fd85-0b81-e6a0-a401cfb11d52.jpeg" alt="OCB Slim Noir" onclick="showImage(this)">
-    <div class="product-name bungee-spice">OCB Slim Noir - Made in France</div>
-    <div class="product-price">€25.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('OCB Slim Noir', '25', this)">Acheter</button>
-    </div>
-    <p>Description : OCB Slim Noir, un papier à rouler de qualité pour une expérience unique.</p>
-</div>
-
-<!-- Produit 2 - OCB Marron -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/cce76e99-720f-a078-7a66-76e9c737abd3.jpeg" alt="OCB Marron" onclick="showImage(this)">
-    <div class="product-name bungee-spice">OCB Marron</div>
-    <div class="product-price">€25.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('OCB Marron', '25', this)">Acheter</button>
-    </div>
-    <p>Description : OCB Marron, pour une sensation de fumée naturelle.</p>
-</div>
-
-<!-- Produit 3 - Petits OCB Noir -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2f37a4bb-ccaf-3a43-9fd2-a48c9bee38e2.jpeg" alt="Petits OCB Noir" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Petits OCB Noir</div>
-    <div class="product-price">€20.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Petits OCB Noir', '20', this)">Acheter</button>
-    </div>
-    <p>Description : Petits OCB Noir, parfaits pour des rouleaux plus compacts.</p>
-</div>
- 
-        
-<!-- Produit 6 - Chargeur Rapide Allume Cigarette -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/1dda42ab-34ae-13a0-11ce-f5dcf16750a4.jpeg" alt="Chargeur Rapide Allumé Cigarette" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Chargeur Rapide Allume Cigarette</div>
-    <div class="product-price">€12.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Chargeur Rapide Allume Cigarette', '12', this)">Acheter</button>
-    </div>
-    <p>Description : Chargeur rapide pour vos appareils, idéal pour les déplacements.</p>
-</div>
-
-<!-- Produit 7 - Nike TN -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2c645765-5df4-27c4-c8d5-798f09b5da45.jpeg" alt="Nike TN" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Nike TN</div>
-    <div class="product-price">€80.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Nike TN', '80', this)">Acheter</button>
-    </div>
-    <p>Description : Sneakers Nike TN, confort et style au quotidien.</p>
-</div>
-
-<!-- Produit 8 - Casque Écouteurs Sans Fil Bluetooth -->
-<div class="product">
-    <img src="https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/e0285ed8-8ed9-f98a-34dc-f69c58a2478f.jpeg" alt="Casque Écouteurs Sans Fil Bluetooth" onclick="showImage(this)">
-    <div class="product-name bungee-spice">Casque Écouteurs Sans Fil Bluetooth</div>
-    <div class="product-price">€30.00</div>
-    <div class="product-actions">
-        <div class="quantity-selector">
-            <button onclick="decrementQuantity(this)">-</button>
-            <input type="number" value="1" min="1" class="quantity-input">
-            <button onclick="incrementQuantity(this)">+</button>
-        </div>
-        <button class="buy-button" onclick="addToCartWithQuantity('Casque Écouteurs Sans Fil Bluetooth', '30', this)">Acheter</button>
-    </div>
-    <p>Description : Profitez de votre musique sans fil avec ces écouteurs Bluetooth.</p>
-</div>
-    <!-- ... -->
-<footer>
-    <div class="footer-ad">
-        <h3>Publicité - Gagnez avec nous S'affiche ici 👇🏼</h3>
-        <div style="max-width: 640px; margin: auto; text-align: center;">
-            <!-- CONTENEUR PADMAVEN -->
-            <div id="admaven-ad-container"></div>
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="profile-container">
             
-            <p style="margin-top: 10px; font-size: 14px; color: #666;">
-                Publicités par Collaboration 
-            </p>
-        </div>
-    </div>
-</footer>
-
-
-        
-<div style="display: flex; align-items: center; gap: 10px; background: linear-gradient(to right, #000000, #333); 
-            padding: 12px 20px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-    <span style="font-size: 28px; color: #ffeb3b;">🛒</span>
-    <div style="display: flex; flex-direction: column; line-height: 1;">
-        <span style="font-family: 'Bungee Spice', cursive; font-size: 22px; color: white;">H.D.S</span>
-        <span style="font-family: 'Roboto', sans-serif; font-size: 18px; color: #ffeb3b; letter-spacing: 1px;">SHOP</span>
-    </div>
-    <span style="margin-left: 5px; font-size: 12px; color: white; opacity: 0.8;">| Boutique Officielle</span>
-</div>
-
-        
-        <div style="display: inline-flex; align-items: center; background: #ffeb3b; 
-            padding: 8px 15px 8px 8px; border-radius: 50px; border: 2px solid #000;">
-    <div style="background: black; color: #ffeb3b; width: 36px; height: 36px; 
-                border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                font-size: 18px; margin-right: 10px;">HDS</div>
-    <span style="font-family: 'Bungee', sans-serif; font-weight: bold; font-size: 20px;">SHOP</span>
-    <div style="width: 1px; background: black; height: 20px; margin: 0 10px;"></div>
-    <span style="font-size: 12px;">🇯🇲 Premium</span>
-</div>
-<div style="display: inline-flex; align-items: baseline; gap: 5px;">
-    <span style="font-family: 'Arial Black', sans-serif; font-size: 24px; color: #000;">HDS</span>
-    <span style="font-family: 'Arial', sans-serif; font-size: 18px; color: #e53935;">SHOP</span>
-    <span style="width: 8px; height: 8px; background: #4CAF50; border-radius: 50%; align-self: center;"></span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 15px;">
-    <!-- Votre logo -->
-    <div style="display: flex; align-items: center; gap: 8px; background: #f5f5f5; 
-                padding: 8px 12px; border-radius: 8px;">
-        <span style="font-size: 24px;">🛒</span>
-        <span style="font-weight: bold;">HDS SHOP</span>
-    </div>
-    
-    <!-- Autres éléments à côté -->
-    <div style="background: #eee; padding: 8px 12px; border-radius: 8px;">
-        Livraison express
-    </div>
-</div>
-    <!-- PANIER ET FORMULAIRE -->
-    <div id="cartModal" style="display:none;">
-        <h3>Mon Panier</h3>
-        <div id="cartItems"></div>
-        <div id="cartTotal" class="cart-total">Total : 0€</div>
-        <button class="checkout-button" onclick="checkout()">Passer à la caisse</button>
-        <div id="checkoutContainer" class="form-container" style="display:none;">
-            <h3>Finaliser votre commande</h3>
-            <form id="checkoutForm" action="https://formspree.io/f/xnnbwjpe" method="POST">
-                <div>
-                    <input type="text" name="name" placeholder="Nom complet" required />
-                    <input type="tel" name="phone" placeholder="Téléphone" required />
-                    <textarea name="address" placeholder="Adresse de livraison" required></textarea>
+            <!-- Premium Header -->
+            <div class="premium-header">
+                <div class="profile-image-wrapper">
+                    <img src="https://mcusercontent.com/40a9f1a77d46874eba2309d88/images/89a59702-cad3-dfb7-580d-22fb843f8d3f.jpeg" 
+                         alt="H.D.S SHOP Logo Premium" 
+                         class="profile-image" 
+                         id="profileImage">
+                    <div class="star"></div>
                 </div>
-                <div>
-                    <h4>Options de livraison</h4>
-                    <input type="radio" id="deliveryNow" name="deliveryTime" value="now" checked required>
-                    <label for="deliveryNow">Livraison rapide (dans l'heure)</label>
-                    <input type="radio" id="deliveryLater" name="deliveryTime" value="later">
-                    <label for="deliveryLater">Livraison programmée</label>
-                    <div id="deliveryTimeContainer" style="display:none;">
-                        <input type="datetime-local" name="deliveryDateTime">
+                
+                <div class="premium-branding">
+                    <h1 class="brand-main">H.D.S</h1>
+                    <div class="brand-sub">SHOP</div>
+                    <div class="brand-tagline">Lifestyle, Catering & Alimentation Premium</div>
+                    <div class="premium-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Service 24h/24</span>
                     </div>
                 </div>
-                <div>
-                    <h4>Méthode de paiement</h4>
-                    <input type="radio" id="cash" name="paymentMethod" value="cash" checked required>
-                    <label for="cash">Espèces</label>
-                    <input type="radio" id="card" name="paymentMethod" value="card">
-                    <label for="card">Carte bancaire</label>
+            </div>
+            
+            <!-- Status Message -->
+            <div class="status" id="statusText">
+                <div class="status-text">🚀 Livraison Express sur Marseille</div>
+            </div>
+            
+            <!-- Bouton Détails Boutique -->
+            <button class="toggle-button" id="toggleDetails">
+                <span>🏪 Détails de la Boutique</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            
+            <!-- Détails Boutique Section -->
+            <div class="content-section" id="profileDetails">
+                <div class="shop-profile">
+                    <div class="shop-name">🗿HOLDEST🇯🇲 🛒SHOP</div>
+                    <div class="shop-tag">Votre partenaire lifestyle nocturne & catering</div>
+                    <div class="shop-tag" style="color: var(--accent-red);">
+                        Livraison exclusivement sur <span style="color: var(--accent-red); font-weight: 700;">Marseille</span> et ses alentours
+                    </div>
+                    
+                    <div class="shop-features">
+                        <div class="feature">🔋 Alimentations & Accessoires</div>
+                        <div class="feature">🍾 Boissons Premium</div>
+                        <div class="feature">🎉 Kits Soirée</div>
+                        <div class="feature">🍽️ Repas d'Entreprise</div>
+                        <div class="feature">🎊 Catering Événements</div>
+                        <div class="feature">🥗 Alimentation Mixte</div>
+                    </div>
+                    
+                    <!-- Stats Boutique -->
+                    <div class="shop-features mt-20">
+                        <div class="feature" style="background: rgba(76, 175, 80, 0.1); border-left-color: #4CAF50;">⭐ Évaluations : ★★★★★ (4.8)</div>
+                        <div class="feature" id="clientCount" style="background: rgba(255, 215, 0, 0.1); border-left-color: var(--primary-yellow);">👥 Clients : 1 500+ satisfaits</div>
+                        <div class="feature" style="background: rgba(33, 150, 243, 0.1); border-left-color: #2196F3;">🚚 Livraison gratuite à partir de 30€</div>
+                        <div class="feature" style="background: rgba(156, 39, 176, 0.1); border-left-color: #9C27B0;">💰 Frais de livraison de 1€ à 2€ selon la distance</div>
+                    </div>
+                    
+                    <div class="shop-footer mt-20">
+                        <span>🚀 Livraison 24h</span>
+                        <span>•</span>
+                        <span>🔐 Service Discret</span>
+                        <span>•</span>
+                        <span>🍽️ Catering Pro</span>
+                    </div>
                 </div>
-                <input type="hidden" name="orderDetails" id="orderDetails" />
-                <input type="hidden" id="confirmationCodeInput" name="confirmationCode" />
-                <button type="submit" class="checkout-button">Confirmer la commande</button>
-                <button type="button" class="checkout-button" onclick="goToCart()">Retour au panier</button>
-            </form>
+                
+                <!-- Carte de Livraison -->
+                <div class="tracker-map-container">
+                    <div id="deliveryMap" class="tracker-map"></div>
+                </div>
+                
+                <!-- Légende Carte -->
+                <div class="driver-info" style="margin-top: 16px; background: rgba(255, 255, 255, 0.05);">
+                    <div style="display: flex; justify-content: space-around; width: 100%; font-size: 12px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: #4CAF50; border-radius: 50%; border: 2px solid white;"></div>
+                            <span style="color: var(--gray-300);">Zone Gratuite</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: #FF9800; border-radius: 50%; border: 2px solid white;"></div>
+                            <span style="color: var(--gray-300);">1€ Livraison</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 12px; height: 12px; background: #FF5252; border-radius: 50%; border: 2px solid white;"></div>
+                            <span style="color: var(--gray-300);">2€ Livraison</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Suivi Livraison en Temps Réel -->
+            <div class="delivery-tracker">
+                <div class="tracker-header">
+                    <div class="tracker-title">
+                        <i class="fas fa-shipping-fast"></i>
+                        Suivi en direct
+                    </div>
+                    <div class="tracker-status" id="deliveryStatus">En attente</div>
+                </div>
+                
+                <div class="tracker-map-container">
+                    <div id="trackerMap" class="tracker-map"></div>
+                </div>
+                
+                <div class="driver-info">
+                    <div class="driver-avatar">M</div>
+                    <div class="driver-details">
+                        <div class="driver-name">Mohamed - Livreur #HDS23</div>
+                        <div class="driver-eta" id="driverETA">📍 Prêt pour livraison</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bouton Suivre Livraison -->
+            <button class="follow-delivery-button" id="followDeliveryButton" onclick="openDeliveryTrackerModal()">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Suivre ma livraison en direct</span>
+            </button>
+            
+            <!-- Bouton Voir la Boutique -->
+            <button class="toggle-button" id="showShopButton">
+                <span>🛍️ Voir tous les produits</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            
+            <!-- Section Boutique -->
+            <div class="content-section" id="shopSection">
+                <h2 class="modal-title" style="font-size: 22px; justify-content: center; margin-bottom: 20px;">
+                    <i class="fas fa-store"></i>
+                    Produits Premium
+                </h2>
+                
+                <!-- Filtres -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="repas">🍽️ Repas</button>
+                    <button class="filter-btn" data-filter="catering">🎊 Catering</button>
+                    <button class="filter-btn" data-filter="alimentation">🥗 Alimentation</button>
+                    <button class="filter-btn" data-filter="boissons">🥤 Boissons</button>
+                    <button class="filter-btn" data-filter="alcools">🍾 Alcools</button>
+                    <button class="filter-btn" data-filter="accessoires">🔌 Accessoires</button>
+                </div>
+                
+                <!-- Grille Produits -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Produits chargés dynamiquement -->
+                </div>
+                
+                <!-- Section Catering -->
+                <div class="shop-profile mt-30">
+                    <h3 style="color: var(--primary-yellow); font-size: 18px; font-weight: 700; margin-bottom: 12px; text-align: center;">
+                        Service Catering Professionnel
+                    </h3>
+                    <p style="color: var(--gray-300); font-size: 14px; text-align: center; line-height: 1.5; margin-bottom: 16px;">
+                        Organisation d'événements sur mesure : anniversaires, mariages, réunions d'entreprise.
+                    </p>
+                    <p style="color: var(--gray-400); font-size: 13px; text-align: center;">
+                        Contactez-nous pour un devis personnalisé !
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div style="padding: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <div style="font-size: 12px; color: var(--gray-500); margin-bottom: 8px;">
+                    © 2024 H.D.S SHOP - Tous droits réservés
+                </div>
+                <div style="font-size: 11px; color: var(--gray-600);">
+                    Livraison exclusive sur Marseille • Service catering sur réservation
+                </div>
+            </div>
         </div>
     </div>
-    <button id="openCartButton">🛒<span id="cartCount">0</span></button>
-</div>
-
-<!-- MODAL DE CONFIRMATION -->
-<div id="confirmationModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.22); z-index:1001;">
-    <h2>Code de Confirmation</h2>
-    <p>Voici votre code :</p>
-    <div id="confirmationCode" style="font-weight: bold; font-size: 24px; color: red; border: 2px solid black; padding: 10px; display: inline-block; border-radius: 5px;"></div>
-    <p>Veuillez montrer ce code au livreur.</p>
-    <p style="font-size:14px; color:gray;">Faites une capture d’écran de ce code pour le montrer facilement au livreur.</p>
-    <button id="closeModalButton" style="margin-top:20px;padding:10px 20px;">Fermer</button>
-</div>
-<div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
-
-<!-- MODAL IMAGE ZOOM -->
-<div id="imageModal" style="display:none;justify-content:center;align-items:center;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:1100;" onclick="closeImage()">
-    <img id="zoomedImage" src="" alt="Zoomed Image" style="max-width:80vw;max-height:80vh;">
-</div>
-
-
-<!-- Modal d'alerte -->
-    <div id="alertModal" class="modal">
-        <span id="alertMessage"></span>
+    
+    <!-- Bouton Panier -->
+    <div class="cart-button" id="openCartButton">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count" id="cartCount">0</div>
     </div>
-   <!-- SCRIPT ADMAVEN - METS CE CODE À LA FIN DE TON SITE -->
-<script type="text/javascript">
-    var admaven_placement_id = "Bqja5pjUF";
-    (function() {
-        var script = document.createElement('script');
-        script.src = 'https://ads.admaven.com/server/static/ads.js';
-        script.type = 'text/javascript';
-        script.async = true;
-        document.getElementById('admaven-ad-container').appendChild(script);
-    })();
-</script> 
-<script>
-// Ouvrir et fermer le modal du panier
-document.getElementById('openCartButton').onclick = function() {
-    document.getElementById('cartModal').style.display = 'block';
-    document.getElementById('checkoutContainer').style.display = 'none';
-    document.getElementById('cartItems').style.display = 'block';
-    document.querySelector('#cartModal h3').textContent = 'Mon Panier';
-};
-window.onclick = function(event) {
-    const cartModal = document.getElementById('cartModal');
-    if (event.target === cartModal) {
-        cartModal.style.display = 'none';
-    }
-};
-
-
     
-// PANIER
-let cart = [];
+    <!-- Modal Panier -->
+    <div class="modal-overlay" id="cartModalOverlay">
+        <div class="premium-modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Mon Panier
+                </div>
+                <button class="modal-close" onclick="closeCart()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div style="background: rgba(255,215,0,0.1); border-radius: var(--radius-lg); padding: 20px; margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--gray-400);">Sous-total</span>
+                        <span style="font-weight: 600; color: white;" id="subtotal">0€</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--gray-400);">Livraison</span>
+                        <span style="font-weight: 600; color: #4CAF50;" id="deliveryCost">Gratuit</span>
+                    </div>
+                    <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 16px 0;"></div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: white; font-size: 18px; font-weight: 700;">Total</span>
+                        <span class="cart-total" id="cartTotal">0€</span>
+                    </div>
+                </div>
+                <button class="checkout-button" onclick="checkout()">
+                    <i class="fas fa-lock"></i>
+                    <span>🚀 Commander maintenant</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Checkout -->
+    <div class="modal-overlay" id="checkoutModalOverlay">
+        <div class="premium-modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-lock"></i>
+                    Finaliser la commande
+                </div>
+                <button class="modal-close" onclick="closeCheckout()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm" action="https://formspree.io/f/xnnbwjpe" method="POST" onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label class="form-label">Informations personnelles</label>
+                        <input type="text" name="nom" class="form-input" placeholder="Nom complet" required>
+                        <input type="tel" name="telephone" class="form-input mt-10" placeholder="Téléphone" required>
+                        <textarea name="adresse" class="form-textarea mt-10" placeholder="Adresse complète à Marseille (rue, numéro, code postal, complément)" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Type de commande</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="orderTypeDelivery" name="type_commande" value="Livraison Standard" checked>
+                                <label for="orderTypeDelivery">Livraison standard</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="orderTypeCatering" name="type_commande" value="Catering Événementiel">
+                                <label for="orderTypeCatering">Catering événementiel</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="orderTypeBusiness" name="type_commande" value="Repas d'Entreprise">
+                                <label for="orderTypeBusiness">Repas d'entreprise</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Options de livraison</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="deliveryNow" name="option_livraison" value="Livraison Rapide (dans l'heure)" checked>
+                                <label for="deliveryNow">Livraison rapide (dans l'heure)</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="deliveryLater" name="option_livraison" value="Livraison Programmée">
+                                <label for="deliveryLater">Livraison programmée</label>
+                            </div>
+                        </div>
+                        <div id="deliveryTimeContainer" class="hidden mt-10">
+                            <input type="datetime-local" name="date_heure_livraison" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Méthode de paiement</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="cash" name="paiement" value="Espèces" checked>
+                                <label for="cash">Espèces à la livraison</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="card" name="paiement" value="Carte Bancaire">
+                                <label for="card">Carte bancaire (bientôt disponible)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Instructions spéciales</label>
+                        <textarea name="instructions" class="form-textarea" placeholder="Allergies, préférences alimentaires, code d'immeuble, étage, informations pour le livreur..."></textarea>
+                    </div>
+                    
+                    <!-- Champs cachés -->
+                    <input type="hidden" name="details_commande" id="orderDetails">
+                    <input type="hidden" name="code_confirmation" id="confirmationCodeInput">
+                    <input type="hidden" name="zone_livraison" id="deliveryZoneInput">
+                    <input type="hidden" name="total_commande" id="totalOrderInput">
+                    <input type="hidden" name="frais_livraison" id="deliveryFeeInput">
+                    <input type="hidden" name="nombre_articles" id="itemCountInput">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <input type="hidden" name="_subject" value="Nouvelle commande H.D.S SHOP - Marseille">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <button type="submit" class="checkout-button">
+                        <i class="fas fa-check-circle"></i>
+                        <span>🔐 Confirmer la commande</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Confirmation -->
+    <div class="modal-overlay" id="confirmationModalOverlay">
+        <div class="premium-modal">
+            <div class="modal-header" style="background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(46,125,50,0.2));">
+                <div class="modal-title">
+                    <i class="fas fa-check-circle"></i>
+                    Code de Confirmation
+                </div>
+                <button class="modal-close" onclick="closeConfirmation()">×</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div style="font-size: 80px; margin-bottom: 20px;">🎉</div>
+                <div style="font-size: 28px; font-weight: 800; color: white; margin-bottom: 12px;">Commande Confirmée !</div>
+                <div style="color: var(--gray-400); margin-bottom: 30px;">
+                    Montrez ce code au livreur :
+                </div>
+                
+                <div class="confirmation-code" id="confirmationCode">00</div>
+                
+                <div class="confirmation-instruction">
+                    Votre commande a été enregistrée.<br>
+                    Montrez ce code au livreur pour récupérer votre commande.
+                </div>
+                
+                <div style="display: grid; gap: 16px; margin-bottom: 30px; margin-top: 30px;">
+                    <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 16px; border-radius: var(--radius-md);">
+                        <div style="font-size: 12px; color: var(--gray-400); margin-bottom: 4px;">Temps estimé</div>
+                        <div style="font-weight: 700; color: white;" id="deliveryTimeEstimate">35 minutes</div>
+                    </div>
+                    <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 16px; border-radius: var(--radius-md);">
+                        <div style="font-size: 12px; color: var(--gray-400); margin-bottom: 4px;">Livreur</div>
+                        <div style="font-weight: 700; color: white;" id="deliveryDriver">Mohamed (06 ** ** ** **)</div>
+                    </div>
+                </div>
+                
+                <button class="checkout-button" onclick="validateAndCloseConfirmation()">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Valider la commande</span>
+                </button>
+                
+                <button class="checkout-button mt-10" style="background: rgba(255,255,255,0.1);" onclick="startLiveTracking()">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Suivre ma livraison en direct</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Suivi Livraison -->
+    <div class="modal-overlay" id="deliveryTrackerModalOverlay">
+        <div class="premium-modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-shipping-fast"></i>
+                    Suivi de livraison en direct
+                </div>
+                <button class="modal-close" onclick="closeDeliveryTrackerModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="shop-profile" style="margin: 0 0 20px 0;">
+                    <h3>Votre commande #<span id="modalOrderCode">000</span></h3>
+                    <p><strong>Code de confirmation :</strong> <span id="modalConfirmationCode" style="color: var(--primary-yellow); font-weight: 700;">000</span></p>
+                    <p><strong style="color: var(--accent-green);">Montrez ce code au livreur</strong></p>
+                </div>
+                
+                <div class="driver-info" style="margin: 0 0 20px 0;">
+                    <div class="driver-avatar">M</div>
+                    <div class="driver-details">
+                        <div class="driver-name" id="modalDriverName">Mohamed</div>
+                        <div class="driver-eta" id="modalDriverPhone">06 ** ** ** **</div>
+                    </div>
+                </div>
+                
+                <div class="shop-profile" style="margin: 0 0 20px 0; background: rgba(255, 152, 0, 0.1); border-color: rgba(255, 152, 0, 0.2);">
+                    <h3 style="color: var(--accent-orange);">Temps estimé</h3>
+                    <p><i class="fas fa-clock"></i> <strong>Arrivée prévue :</strong> <span id="modalDeliveryTime" style="color: var(--primary-yellow);">35 minutes</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Distance :</strong> <span style="color: var(--primary-yellow);">2.5 km</span></p>
+                </div>
+                
+                <!-- Tracker Progress -->
+                <div class="delivery-tracker" style="margin: 0;">
+                    <div class="tracker-header">
+                        <div class="tracker-title">
+                            <i class="fas fa-shipping-fast"></i>
+                            Progression
+                        </div>
+                        <div class="tracker-status" id="modalDeliveryStatus">En préparation</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: var(--radius-full); margin: 20px 0; overflow: hidden;">
+                        <div id="modalDeliveryProgress" style="height: 100%; background: linear-gradient(90deg, #4CAF50, #2196F3); border-radius: var(--radius-full); width: 0%; transition: width 0.3s;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 20px; position: relative;">
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div id="modalStep1" style="width: 20px; height: 20px; border-radius: 50%; background: var(--primary-white); border: 3px solid #4CAF50; margin-bottom: 5px;"></div>
+                            <div style="font-size: 12px; font-weight: 600; text-align: center;">Commande</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div id="modalStep2" style="width: 20px; height: 20px; border-radius: 50%; background: var(--primary-white); border: 3px solid var(--gray-400); margin-bottom: 5px;"></div>
+                            <div style="font-size: 12px; font-weight: 600; text-align: center;">Préparation</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div id="modalStep3" style="width: 20px; height: 20px; border-radius: 50%; background: var(--primary-white); border: 3px solid var(--gray-400); margin-bottom: 5px;"></div>
+                            <div style="font-size: 12px; font-weight: 600; text-align: center;">Livraison</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div id="modalStep4" style="width: 20px; height: 20px; border-radius: 50%; background: var(--primary-white); border: 3px solid var(--gray-400); margin-bottom: 5px;"></div>
+                            <div style="font-size: 12px; font-weight: 600; text-align: center;">Livré</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p><strong>Instructions :</strong></p>
+                    <p style="color: var(--gray-300); font-size: 14px; margin-top: 8px;">Préparez l'argent en espèces pour le livreur</p>
+                    <p style="color: var(--gray-300); font-size: 14px;">Restez disponible au numéro fourni</p>
+                    <p style="color: var(--gray-300); font-size: 14px;">Ayez votre code de confirmation prêt</p>
+                </div>
+                
+                <button class="checkout-button mt-20" onclick="startRealisticDeliveryTracker()">
+                    <i class="fas fa-play"></i>
+                    <span>Démarrer le suivi en direct</span>
+                </button>
+                <button class="checkout-button mt-10" style="background: var(--gray-600);" onclick="closeDeliveryTrackerModal()">
+                    <i class="fas fa-times"></i>
+                    <span>Fermer</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div style="position: fixed; bottom: 20px; right: 20px; background: var(--gray-800); color: var(--primary-white); padding: 15px 20px; border-radius: 50px; box-shadow: var(--shadow-lg); display: none; align-items: center; gap: 15px; z-index: 1000; max-width: 320px; animation: slideInRight 0.5s ease-out;" id="deliveryNotification">
+        <button onclick="closeNotification()" style="background: transparent; border: none; color: var(--primary-white); font-size: 24px; cursor: pointer; padding: 0; line-height: 1;">×</button>
+        <span>Livraison exclusivement sur <span style="color: #ff4444; font-weight: 700;">Marseille</span></span>
+    </div>
+    
+    <!-- Alert Modal -->
+    <div style="position: fixed; top: 25px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary-yellow), var(--accent-orange)); color: var(--primary-black); padding: 18px 30px; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); z-index: 1100; display: none; align-items: center; gap: 15px; max-width: 90%; font-weight: 700; animation: slideInDown 0.4s ease-out;" id="alertModal">
+        <div style="font-size: 24px;">✓</div>
+        <div id="alertMessage"></div>
+    </div>
+    
+    <!-- Image Modal -->
+    <div style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 1200; justify-content: center; align-items: center; animation: fadeIn 0.3s ease-out;" id="imageModal">
+        <button onclick="closeImage()" style="position: absolute; top: 25px; right: 25px; background: rgba(255, 255, 255, 0.2); color: var(--primary-white); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 28px; cursor: pointer; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px); transition: var(--transition-fast);">×</button>
+        <img class="image-modal-content" id="zoomedImage" src="" alt="Zoom" style="max-width: 90%; max-height: 90%; border-radius: var(--radius-md); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+    </div>
 
-function incrementQuantity(button) {
-    const input = button.parentElement.querySelector('.quantity-input');
-    input.value = parseInt(input.value) + 1;
-}
-function decrementQuantity(button) {
-    const input = button.parentElement.querySelector('.quantity-input');
-    if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
-    }
-}
-function addToCartWithQuantity(productName, price, button) {
-    const productElement = button.closest('.product');
-    const quantity = parseInt(productElement.querySelector('.quantity-input').value);
-    const totalPrice = quantity * parseFloat(price);
-    // Cherche si produit déjà là
-    const existingItem = cart.find(item => item.name === productName);
-    if (existingItem) {
-        existingItem.quantity += quantity;
-        existingItem.total += totalPrice;
-    } else {
-        cart.push({ name: productName, price: parseFloat(price), quantity: quantity, total: totalPrice });
-    }
-    updateCart();
-    showAlert(`${quantity} ${productName} ajouté(s) au panier`);
-}
-function updateCart() {
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-    let grandTotal = 0;
-    cart.forEach((item, index) => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cart-item';
-        itemElement.innerHTML = `
-            <span>${item.quantity}x ${item.name}</span>
-            <span>${item.total.toFixed(2)}€</span>
-            <button onclick="removeFromCart(${index})">✕</button>
-        `;
-        cartItems.appendChild(itemElement);
-        grandTotal += item.total;
-    });
-    document.getElementById('cartTotal').innerText = `Total : ${grandTotal.toFixed(2)}€`;
-    document.getElementById('cartCount').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('orderDetails').value = JSON.stringify(cart);
-}
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-function checkout() {
-    if (cart.length === 0) {
-        showAlert("Votre panier est vide");
-        return;
-    }
-    document.getElementById('checkoutContainer').style.display = 'block';
-    document.getElementById('cartItems').style.display = 'none';
-    document.querySelector('#cartModal h3').textContent = 'Finaliser la commande';
-}
-function goToCart() {
-    document.getElementById('checkoutContainer').style.display = 'none';
-    document.getElementById('cartItems').style.display = 'block';
-    document.querySelector('#cartModal h3').textContent = 'Mon Panier';
-}
-function showAlert(message) {
-    const alertModal = document.getElementById('alertModal');
-    document.getElementById('alertMessage').textContent = message;
-    alertModal.style.display = 'block';
-    setTimeout(() => {
-        alertModal.style.display = 'none';
-    }, 2000);
-}
-document.getElementById('openCartButton').onclick = function() {
-    document.getElementById('cartModal').style.display = 'block';
-    document.getElementById('checkoutContainer').style.display = 'none';
-    document.getElementById('cartItems').style.display = 'block';
-    document.querySelector('#cartModal h3').textContent = 'Mon Panier';
-};
+    <!-- Admaven Script -->
+    <div id="admaven-ad-container"></div>
+    <script type="text/javascript">
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://ads.admaven.com/server/static/ads.js';
+            script.type = 'text/javascript';
+            script.async = true;
+            document.getElementById('admaven-ad-container').appendChild(script);
+        })();
+    </script>
 
-// FONCTIONS IMAGE ZOOM
-function showImage(img) {
-    document.getElementById('zoomedImage').src = img.src;
-    document.getElementById('imageModal').style.display = 'flex';
-}
-function closeImage() {
-    document.getElementById('imageModal').style.display = 'none';
-}
+    <script>
+        // ==================== GLOBAL VARIABLES ====================
+        let cart = [];
+        let currentFilter = 'all';
+        let deliveryMap = null;
+        let trackerMap = null;
+        let driverMarker = null;
+        let trackingInterval = null;
+        let orderConfirmed = false;
+        let currentOrderCode = '';
+        let currentConfirmationCode = '';
+        let currentDriverName = '';
+        let currentDriverPhone = '';
+        let currentDeliveryTime = '';
+        
+        // Zones de livraison (coordonnées approximatives de Marseille)
+        const deliveryZones = {
+            free: [
+                [43.2965, 5.3698], // Centre-ville
+                [43.2900, 5.3750], // Vieux-Port
+                [43.3050, 5.3950]  // La Plaine
+            ],
+            cheap: [
+                [43.2800, 5.3800], // Sud
+                [43.3100, 5.4000], // Nord
+                [43.3000, 5.4200]  // Est
+            ],
+            expensive: [
+                [43.2600, 5.4000], // Lointain sud
+                [43.3300, 5.4000], // Lointain nord
+                [43.2900, 5.4500]  // Lointain est
+            ]
+        };
+        
+        const SHOP_LOCATION = [43.2828, 5.3686];
+        
+        let products = [
+            // ==================== CATÉGORIE REPAS D'ENTREPRISE ====================
+            {
+                id: 100,
+                name: "Menu d'Affaires",
+                price: 25.00,
+                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Menu complet pour réunions d'affaires : plat principal, accompagnement, dessert et boisson.",
+                category: "repas",
+                available: true
+            },
+            {
+                id: 101,
+                name: "Buffet d'Entreprise",
+                price: 18.00,
+                image: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Buffet varié pour équipes : sandwiches, salades, pâtisseries et boissons.",
+                category: "repas",
+                available: true
+            },
+            {
+                id: 102,
+                name: "Plateau Repas",
+                price: 15.00,
+                image: "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Plateau repas individuel avec choix de plat, dessert et boisson.",
+                category: "repas",
+                available: true
+            },
+            {
+                id: 103,
+                name: "Pause Café Premium",
+                price: 8.00,
+                image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Pause café avec viennoiseries, fruits et boissons chaudes.",
+                category: "repas",
+                available: true
+            },
+            {
+                id: 104,
+                name: "Déjeuner Équipe",
+                price: 22.00,
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Déjeuner complet pour équipe de 5 personnes minimum.",
+                category: "repas",
+                available: true
+            },
+            {
+                id: 105,
+                name: "Cocktail d'Affaires",
+                price: 35.00,
+                image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Cocktail avec canapés, boissons et service pour événements professionnels.",
+                category: "repas",
+                available: true
+            },
+            
+            // ==================== CATÉGORIE CATERING ÉVÉNEMENTS ====================
+            {
+                id: 200,
+                name: "Pack Anniversaire",
+                price: 150.00,
+                image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Pack complet pour anniversaire : buffet, boissons, décoration et gâteau.",
+                category: "catering",
+                available: true
+            },
+            {
+                id: 201,
+                name: "Catering Mariage",
+                price: 500.00,
+                image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Service catering complet pour mariage jusqu'à 50 personnes.",
+                category: "catering",
+                available: true
+            },
+            {
+                id: 202,
+                name: "Buffet Fête",
+                price: 200.00,
+                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Buffet festif pour événements privés avec service sur place.",
+                category: "catering",
+                available: true
+            },
+            {
+                id: 203,
+                name: "Cocktail Réception",
+                price: 120.00,
+                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Service cocktail pour réceptions jusqu'à 30 personnes.",
+                category: "catering",
+                available: true
+            },
+            {
+                id: 204,
+                name: "Barbecue Événement",
+                price: 300.00,
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Barbecue complet avec viandes, accompagnements et service.",
+                category: "catering",
+                available: true
+            },
+            {
+                id: 205,
+                name: "Brunch Dominical",
+                price: 180.00,
+                image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D3D&auto=format&fit=crop&w=600&q=80",
+                description: "Brunch complet pour événements familiaux ou amicaux.",
+                category: "catering",
+                available: true
+            },
+            
+            // ==================== CATÉGORIE ALIMENTATION MIXTE ====================
+            {
+                id: 300,
+                name: "Box Déjeuner Mixte",
+                price: 12.00,
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Box repas équilibrée avec protéines, légumes et féculents.",
+                category: "alimentation",
+                available: true
+            },
+            {
+                id: 301,
+                name: "Salade Composée",
+                price: 10.00,
+                image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Salade fraîche avec choix de protéines et vinaigrette maison.",
+                category: "alimentation",
+                available: true
+            },
+            {
+                id: 302,
+                name: "Sandwich Gourmet",
+                price: 8.00,
+                image: "https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Sandwich artisanal avec ingrédients frais et pain de qualité.",
+                category: "alimentation",
+                available: true
+            },
+            {
+                id: 303,
+                name: "Bowl Healthy",
+                price: 14.00,
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Bowl équilibré avec quinoa, légumes rôtis et sauce au choix.",
+                category: "alimentation",
+                available: true
+            },
+            {
+                id: 304,
+                name: "Plateau Végétarien",
+                price: 16.00,
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Assortiment de plats végétariens pour tous les goûts.",
+                category: "alimentation",
+                available: true
+            },
+            {
+                id: 305,
+                name: "Menu Enfant",
+                price: 9.00,
+                image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                description: "Menu spécial enfants avec option saine et ludique.",
+                category: "alimentation",
+                available: true
+            },
+            
+            // ==================== PRODUITS EXISTANTS (ORIGINAUX) ====================
+            // Catégorie: Crèmes
+            {
+                id: 1,
+                name: "Creme Deluxe",
+                price: 25.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/bc49a018-064b-af44-b264-1f821d3f40e0.jpg",
+                description: "Une creme deluxe pour votre soirée nocturne.",
+                category: "accessoires",
+                available: false,
+                badge: "Indisponible"
+            },
+            
+            // Catégorie: Gaz
+            {
+                id: 2,
+                name: "Fast Gaz",
+                price: 20.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/d6ff08ad-78f0-2424-b67f-1a9f23db736c.jpeg",
+                description: "Gaz rapide pour vos besoins quotidiens.",
+                category: "accessoires",
+                available: true
+            },
+            
+            // Catégorie: Boissons
+            {
+                id: 3,
+                name: "Canette de Coca",
+                price: 2.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/6a1f1093-3c42-4461-4910-e78105e654f3.jpeg",
+                description: "Rafraîchissement classique dans une canette pratique.",
+                category: "boissons",
+                available: true
+            },
+            {
+                id: 4,
+                name: "Canette d'Oasis Tropical",
+                price: 2.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/a83ccfd9-060f-db68-18d5-b796f3f5004f.jpeg",
+                description: "Une boisson fruitée et rafraîchissante pour les chaudes journées.",
+                category: "boissons",
+                available: true
+            },
+            {
+                id: 5,
+                name: "Red Bull",
+                price: 3.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/6ccce169-be11-3066-d79b-4b2c89f44941.jpeg",
+                description: "Une boisson énergisante pour rester tonique toute la journée.",
+                category: "boissons",
+                available: true
+            },
+            {
+                id: 6,
+                name: "Monster",
+                price: 3.50,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2cdecd84-a946-9f22-130f-214163db6ffd.jpeg",
+                description: "Une boisson énergisante avec un goût unique pour les amateurs de sensations.",
+                category: "boissons",
+                available: true
+            },
+            {
+                id: 7,
+                name: "Crazy Tiger",
+                price: 4.50,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/e6007723-0835-44b4-33d6-e05c9a3deb2b.jpeg",
+                description: "Une boisson énergisante qui booste votre énergie à chaque gorgée.",
+                category: "boissons",
+                available: true
+            },
+            
+            // Catégorie: Alcools
+            {
+                id: 8,
+                name: "Alcool Vodka (70 cl)",
+                price: 19.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/f8d0504d-2c8a-189b-08f5-3b0f48964823.jpeg",
+                description: "Vodka de qualité supérieure pour vos soirées.",
+                category: "alcools",
+                available: true
+            },
+            
+            // Catégorie: OCB
+            {
+                id: 9,
+                name: "OCB Slim Noir - Made in France",
+                price: 25.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/d24ccf63-fd85-0b81-e6a0-a401cfb11d52.jpeg",
+                description: "OCB Slim Noir, un papier à rouler de qualité pour une expérience unique.",
+                category: "accessoires",
+                available: true
+            },
+            {
+                id: 10,
+                name: "OCB Marron",
+                price: 25.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/cce76e99-720f-a078-7a66-76e9c737abd3.jpeg",
+                description: "OCB Marron, pour une sensation de fumée naturelle.",
+                category: "accessoires",
+                available: true
+            },
+            {
+                id: 11,
+                name: "Petits OCB Noir",
+                price: 20.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2f37a4bb-ccaf-3a43-9fd2-a48c9bee38e2.jpeg",
+                description: "Petits OCB Noir, parfaits pour des rouleaux plus compacts.",
+                category: "accessoires",
+                available: true
+            },
+            
+            // Catégorie: Accessoires
+            {
+                id: 12,
+                name: "Chargeur Rapide Allume Cigarette",
+                price: 12.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/1dda42ab-34ae-13a0-11ce-f5dcf16750a4.jpeg",
+                description: "Chargeur rapide pour vos appareils, idéal pour les déplacements.",
+                category: "accessoires",
+                available: true
+            },
+            {
+                id: 13,
+                name: "Nike TN",
+                price: 80.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/2c645765-5df4-27c4-c8d5-798f09b5da45.jpeg",
+                description: "Sneakers Nike TN, confort et style au quotidien.",
+                category: "accessoires",
+                available: true
+            },
+            {
+                id: 14,
+                name: "Casque Écouteurs Sans Fil Bluetooth",
+                price: 30.00,
+                image: "https://mcusercontent.com/ecbcd3e0a3ef2c00dbcaefee8/images/e0285ed8-8ed9-f98a-34dc-f69c58a2478f.jpeg",
+                description: "Profitez de votre musique sans fil avec ces écouteurs Bluetooth.",
+                category: "accessoires",
+                available: true
+            }
+        ];
 
-// VALIDATION & FORMULAIRE, CONFIRMATION
-function generateConfirmationCode() {
-    return Math.floor(Math.random() * 100).toString().padStart(2, '0');
-}
-document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Mets à jour les détails de commande au dernier moment
-    document.getElementById('orderDetails').value = JSON.stringify(cart);
-    // Génére et affiche le code
-    const confirmationCode = generateConfirmationCode();
-    document.getElementById('confirmationCodeInput').value = confirmationCode;
-    document.getElementById('confirmationCode').textContent = confirmationCode;
-    document.getElementById('confirmationModal').style.display = 'block';
-    document.getElementById('modalOverlay').style.display = 'block';
-    // Lorsque le client ferme le modal, on soumet
-    document.getElementById('closeModalButton').onclick = function() {
-        document.getElementById('confirmationModal').style.display = 'none';
-        document.getElementById('modalOverlay').style.display = 'none';
-        document.getElementById('cartModal').style.display = 'none';
-        document.getElementById('checkoutForm').submit();
-        cart = [];
-        updateCart();
-        document.getElementById('checkoutContainer').style.display = 'none';
-        document.getElementById('cartItems').style.display = 'block';
-        document.querySelector('#cartModal h3').textContent = 'Mon Panier';
-    };
-});
-// Affiche/masque date de livraison si livraison programmée
-document.querySelectorAll('input[name="deliveryTime"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-        document.getElementById('deliveryTimeContainer').style.display = (this.value === 'later') ? 'block' : 'none';
-    });
-});
-</script>
+        // ==================== INITIALISATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initDeliveryMap();
+            initTrackerMap();
+            renderProducts();
+            initEventListeners();
+            loadCartFromStorage();
+            initFilters();
+            checkActiveOrder();
+            
+            setTimeout(() => {
+                showDeliveryNotification();
+            }, 5000);
+            
+            setTimeout(() => {
+                showNotification('🎉 Bienvenue chez H.D.S SHOP Premium !');
+            }, 1000);
+        });
 
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Pour le bouton "Voir la boutique"
-    const showShopButton = document.getElementById('showShopButton');
-    const shopSection = document.getElementById('shopSection');
-    if (showShopButton && shopSection) {
-        showShopButton.addEventListener('click', function(event) {
+        // ==================== FONCTIONS CARTES ====================
+        function initDeliveryMap() {
+            try {
+                const marseille = [43.2965, 5.3698];
+                
+                if (!document.getElementById('deliveryMap')) return;
+                
+                if (deliveryMap) {
+                    deliveryMap.remove();
+                }
+                
+                deliveryMap = L.map('deliveryMap').setView(marseille, 12);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 18
+                }).addTo(deliveryMap);
+                
+                addDeliveryZones(deliveryMap);
+                
+                const shopIcon = L.divIcon({
+                    className: 'shop-marker',
+                    html: '<div style="background: linear-gradient(135deg, #FFD700, #FF9800); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #000; font-weight: 800; color: black; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">🏪</div>',
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 40]
+                });
+                
+                L.marker(SHOP_LOCATION, { icon: shopIcon })
+                    .addTo(deliveryMap)
+                    .bindPopup('<b>H.D.S SHOP</b><br>134 Av. de Saint-Antoine<br>Marseille')
+                    .openPopup();
+                
+                setTimeout(() => {
+                    if (deliveryMap) deliveryMap.invalidateSize();
+                }, 100);
+                
+            } catch (error) {
+                console.error('Erreur carte:', error);
+            }
+        }
+        
+        function initTrackerMap() {
+            try {
+                if (!document.getElementById('trackerMap')) return;
+                
+                if (trackerMap) {
+                    trackerMap.remove();
+                }
+                
+                trackerMap = L.map('trackerMap').setView(SHOP_LOCATION, 14);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap',
+                    maxZoom: 18
+                }).addTo(trackerMap);
+                
+                const shopIcon = L.divIcon({
+                    className: 'shop-marker',
+                    html: '<div style="background: linear-gradient(135deg, #FFD700, #FF9800); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #000; font-weight: 800; color: black; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">🏪</div>',
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 40]
+                });
+                
+                L.marker(SHOP_LOCATION, { icon: shopIcon })
+                    .addTo(trackerMap)
+                    .bindPopup('<b>H.D.S SHOP</b><br>Livraison en cours...')
+                    .openPopup();
+                
+                updateDriverInfo("En attente de commande", "📍 Prêt pour livraison");
+                
+                setTimeout(() => {
+                    if (trackerMap) trackerMap.invalidateSize();
+                }, 100);
+                
+            } catch (error) {
+                console.error('Erreur tracker map:', error);
+            }
+        }
+        
+        function addDeliveryZones(map) {
+            // Zones gratuites (vert)
+            deliveryZones.free.forEach(coords => {
+                L.circle(coords, {
+                    color: '#4CAF50',
+                    fillColor: '#4CAF50',
+                    fillOpacity: 0.2,
+                    radius: 800
+                }).addTo(map).bindPopup('Livraison gratuite<br>0€ de frais');
+            });
+            
+            // Zones à 1€ (orange)
+            deliveryZones.cheap.forEach(coords => {
+                L.circle(coords, {
+                    color: '#FF9800',
+                    fillColor: '#FF9800',
+                    fillOpacity: 0.2,
+                    radius: 800
+                }).addTo(map).bindPopup('Livraison à 1€');
+            });
+            
+            // Zones à 2€ (rouge)
+            deliveryZones.expensive.forEach(coords => {
+                L.circle(coords, {
+                    color: '#FF5252',
+                    fillColor: '#FF5252',
+                    fillOpacity: 0.2,
+                    radius: 800
+                }).addTo(map).bindPopup('Livraison à 2€');
+            });
+        }
+        
+        function estimateDeliveryCost(address) {
+            const randomZone = Math.random();
+            if (randomZone < 0.3) {
+                return { cost: 0, zone: 'Gratuite' };
+            } else if (randomZone < 0.6) {
+                return { cost: 1, zone: '1€' };
+            } else {
+                return { cost: 2, zone: '2€' };
+            }
+        }
+        
+        function startLiveTracking() {
+            if (!trackerMap) {
+                initTrackerMap();
+            }
+            
+            closeConfirmation();
+            showNotification('📍 Suivi de livraison activé !');
+            
+            updateDeliveryStatus('En route', '#FF9800');
+            createDriverMarker();
+            simulateDriverMovement();
+            updateDriverInfo("Mohamed - En route", "📍 À 2.3km • ETA: 15-20min");
+        }
+        
+        function createDriverMarker() {
+            if (!trackerMap) return;
+            
+            if (driverMarker) {
+                trackerMap.removeLayer(driverMarker);
+            }
+            
+            const initialPosition = [
+                SHOP_LOCATION[0] + (Math.random() * 0.01 - 0.005),
+                SHOP_LOCATION[1] + (Math.random() * 0.01 - 0.005)
+            ];
+            
+            const driverIcon = L.divIcon({
+                className: 'driver-marker',
+                html: '<div style="background: linear-gradient(135deg, #2196F3, #1976D2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white; color: white; font-weight: 700; box-shadow: 0 4px 12px rgba(33,150,243,0.4);">🚗</div>',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40]
+            });
+            
+            driverMarker = L.marker(initialPosition, { icon: driverIcon })
+                .addTo(trackerMap)
+                .bindPopup('<b>Livreur #HDS23</b><br>Mohamed<br>En route vers vous')
+                .openPopup();
+        }
+        
+        function simulateDriverMovement() {
+            if (trackingInterval) {
+                clearInterval(trackingInterval);
+            }
+            
+            let step = 0;
+            const maxSteps = 100;
+            
+            trackingInterval = setInterval(() => {
+                if (!driverMarker || !trackerMap) return;
+                
+                step++;
+                
+                if (step >= maxSteps) {
+                    clearInterval(trackingInterval);
+                    updateDeliveryStatus('Arrivé', '#4CAF50');
+                    updateDriverInfo("Mohamed - Arrivé", "📍 Votre colis est arrivé !");
+                    
+                    driverMarker.setIcon(L.divIcon({
+                        className: 'driver-arrived',
+                        html: '<div style="background: linear-gradient(135deg, #4CAF50, #2E7D32); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white; color: white; font-weight: 700; box-shadow: 0 4px 12px rgba(76,175,80,0.4); animation: pulse 1s infinite;">✓</div>',
+                        iconSize: [40, 40],
+                        iconAnchor: [20, 40]
+                    }));
+                    
+                    showNotification('✅ Votre livraison est arrivée !');
+                    return;
+                }
+                
+                const progress = step / maxSteps;
+                const newLat = SHOP_LOCATION[0] + (Math.sin(progress * Math.PI) * 0.02);
+                const newLng = SHOP_LOCATION[1] + (Math.cos(progress * Math.PI) * 0.02);
+                
+                driverMarker.setLatLng([newLat, newLng]);
+                const remainingTime = Math.round((1 - progress) * 20);
+                updateDriverInfo("Mohamed - En route", `📍 À ${(2.3 * (1 - progress)).toFixed(1)}km • ETA: ${remainingTime}min`);
+                
+            }, 1000);
+        }
+        
+        function updateDeliveryStatus(status, color) {
+            const statusEl = document.getElementById('deliveryStatus');
+            if (statusEl) {
+                statusEl.textContent = status;
+                statusEl.style.background = color + '20';
+                statusEl.style.color = color;
+                statusEl.style.borderColor = color + '30';
+            }
+        }
+        
+        function updateDriverInfo(name, eta) {
+            const nameEl = document.querySelector('.driver-name');
+            const etaEl = document.getElementById('driverETA');
+            if (nameEl) nameEl.textContent = name;
+            if (etaEl) etaEl.textContent = eta;
+        }
+
+        // ==================== FONCTIONS PRODUITS ====================
+        function renderProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = products.filter(product => {
+                if (currentFilter === 'all') return true;
+                return product.category === currentFilter;
+            });
+            
+            filteredProducts.forEach(product => {
+                const categoryClass = `category-${product.category}`;
+                const categoryBadge = `<div class="category-badge ${categoryClass}">${getCategoryLabel(product.category)}</div>`;
+                
+                const productHTML = `
+                    <div class="product ${!product.available ? 'product-unavailable' : ''}">
+                        ${categoryBadge}
+                        ${!product.available ? `<div class="unavailable-badge">${product.badge || 'Indisponible'}</div>` : ''}
+                        <img src="${product.image}" alt="${product.name}" class="product-image" onclick="showImage('${product.image}')">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price.toFixed(2)}€</div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                            </div>
+                            <button class="buy-button" onclick="addToCartWithQuantity(${product.id}, this)" ${!product.available ? 'disabled' : ''}>
+                                ${!product.available ? 'Indisponible' : 'Acheter'}
+                            </button>
+                        </div>
+                        <p class="product-description">${product.description}</p>
+                    </div>
+                `;
+                productsGrid.innerHTML += productHTML;
+            });
+        }
+        
+        function getCategoryLabel(category) {
+            const labels = {
+                'repas': 'Repas',
+                'catering': 'Catering',
+                'alimentation': 'Alimentation',
+                'boissons': 'Boisson',
+                'alcools': 'Alcool',
+                'accessoires': 'Accessoire'
+            };
+            return labels[category] || category;
+        }
+
+        // ==================== FONCTIONS PANIER ====================
+        function addToCartWithQuantity(productId, button) {
+            const product = products.find(p => p.id === productId);
+            if (!product || !product.available) return;
+            
+            const productElement = button.closest('.product');
+            const quantity = parseInt(productElement.querySelector('.quantity-input').value);
+            const totalPrice = quantity * product.price;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+                existingItem.total += totalPrice;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    quantity: quantity,
+                    total: totalPrice,
+                    category: product.category
+                });
+            }
+            
+            updateCart();
+            saveCartToStorage();
+            showNotification(`${quantity} ${product.name} ajouté(s) au panier`);
+        }
+        
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const subtotalEl = document.getElementById('subtotal');
+            const cartTotal = document.getElementById('cartTotal');
+            const deliveryCostEl = document.getElementById('deliveryCost');
+            
+            if (!cartItems || !cartCount) return;
+            
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--gray-500);">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🛒</div>
+                        <div style="font-weight: 600; margin-bottom: 8px;">Votre panier est vide</div>
+                        <div style="font-size: 14px;">Ajoutez des produits pour commencer</div>
+                    </div>
+                `;
+                cartCount.textContent = '0';
+                if (subtotalEl) subtotalEl.textContent = '0€';
+                if (cartTotal) cartTotal.textContent = '0€';
+                if (deliveryCostEl) deliveryCostEl.textContent = 'Gratuit';
+                return;
+            }
+            
+            let grandTotal = 0;
+            let itemsHTML = '';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-quantity">${item.quantity}x</div>
+                        <div class="cart-item-price">${itemTotal.toFixed(2)}€</div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${index})">×</button>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (subtotalEl) subtotalEl.textContent = grandTotal.toFixed(2) + '€';
+            
+            const deliveryEstimate = estimateDeliveryCost('');
+            const deliveryCost = deliveryEstimate.cost;
+            const totalWithDelivery = grandTotal + deliveryCost;
+            
+            if (cartTotal) cartTotal.textContent = totalWithDelivery.toFixed(2) + '€';
+            if (deliveryCostEl) {
+                if (deliveryCost === 0) {
+                    deliveryCostEl.textContent = 'Gratuit';
+                    deliveryCostEl.style.color = '#4CAF50';
+                } else {
+                    deliveryCostEl.textContent = deliveryCost.toFixed(2) + '€';
+                    deliveryCostEl.style.color = 'var(--primary-yellow)';
+                }
+            }
+            
+            // Mettre à jour les champs cachés du formulaire
+            document.getElementById('orderDetails').value = formatOrderDetailsForEmail();
+            document.getElementById('totalOrderInput').value = totalWithDelivery.toFixed(2) + '€';
+            document.getElementById('deliveryFeeInput').value = deliveryCost + '€';
+            document.getElementById('itemCountInput').value = totalItems;
+            document.getElementById('deliveryZoneInput').value = deliveryEstimate.zone;
+        }
+        
+        function formatOrderDetailsForEmail() {
+            return cart.map(item => 
+                `${item.quantity}x ${item.name} - ${item.price.toFixed(2)}€ pièce = ${(item.price * item.quantity).toFixed(2)}€`
+            ).join('\n');
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            saveCartToStorage();
+            showNotification('🗑️ Produit retiré du panier');
+        }
+        
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification("Votre panier est vide", 'error');
+                return;
+            }
+            
+            closeCart();
+            setTimeout(() => {
+                document.getElementById('checkoutModalOverlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 300);
+        }
+        
+        function submitOrder(event) {
             event.preventDefault();
-            if (shopSection.style.display === 'block') {
-                shopSection.style.display = 'none';
-            } else {
-                shopSection.style.display = 'block';
-                shopSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            const hasCateringItems = cart.some(item => item.category === 'catering');
+            const hasBusinessMeals = cart.some(item => item.category === 'repas');
+            
+            const confirmationCode = Math.floor(100 + Math.random() * 900).toString();
+            document.getElementById('confirmationCodeInput').value = confirmationCode;
+            document.getElementById('confirmationCode').textContent = confirmationCode;
+            
+            const drivers = ['Mohamed (06 12 34 56 78)', 'Karim (06 87 65 43 21)', 'Ahmed (06 98 76 54 32)'];
+            const times = ['25-35 minutes', '30-40 minutes', '35-45 minutes'];
+            
+            document.getElementById('deliveryTimeEstimate').textContent = times[Math.floor(Math.random() * times.length)];
+            document.getElementById('deliveryDriver').textContent = drivers[Math.floor(Math.random() * drivers.length)];
+            
+            closeCheckout();
+            setTimeout(() => {
+                document.getElementById('confirmationModalOverlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                if (hasCateringItems) {
+                    const instructionElement = document.querySelector('.confirmation-instruction');
+                    if (instructionElement) {
+                        instructionElement.innerHTML += '<br><br><strong>Note :</strong> Pour votre commande de catering, notre équipe événementielle vous contactera dans les prochaines heures pour finaliser les détails.';
+                    }
+                }
+                
+                if (hasBusinessMeals) {
+                    const instructionElement = document.querySelector('.confirmation-instruction');
+                    if (instructionElement) {
+                        instructionElement.innerHTML += '<br><br><strong>Note :</strong> Pour les commandes de repas d\'entreprise, merci de préciser l\'heure de livraison souhaitée dans les instructions spéciales.';
+                    }
+                }
+            }, 300);
+        }
+        
+        function validateAndCloseConfirmation() {
+            // 1. Soumettre le formulaire
+            document.getElementById('checkoutForm').submit();
+            
+            // 2. Vider le panier
+            cart = [];
+            updateCart();
+            saveCartToStorage();
+            
+            // 3. Générer des infos réalistes pour la commande
+            currentOrderCode = 'HDS' + Math.floor(1000 + Math.random() * 9000);
+            currentConfirmationCode = document.getElementById('confirmationCode').textContent;
+            
+            // Livreurs réalistes
+            const drivers = [
+                {name: 'Mohamed', phone: '06 12 34 56 78'},
+                {name: 'Karim', phone: '06 87 65 43 21'},
+                {name: 'Ahmed', phone: '06 98 76 54 32'},
+                {name: 'Youssef', phone: '06 45 67 89 10'},
+                {name: 'Omar', phone: '06 23 45 67 89'}
+            ];
+            const selectedDriver = drivers[Math.floor(Math.random() * drivers.length)];
+            currentDriverName = selectedDriver.name;
+            currentDriverPhone = selectedDriver.phone;
+            
+            // Temps de livraison réaliste
+            const times = ['25-35 minutes', '30-40 minutes', '35-45 minutes', '40-50 minutes'];
+            currentDeliveryTime = times[Math.floor(Math.random() * times.length)];
+            
+            // 4. Marquer la commande comme confirmée
+            orderConfirmed = true;
+            localStorage.setItem('hds_shop_order_confirmed', 'true');
+            localStorage.setItem('hds_shop_order_code', currentOrderCode);
+            localStorage.setItem('hds_shop_confirmation_code', currentConfirmationCode);
+            localStorage.setItem('hds_shop_driver_name', currentDriverName);
+            localStorage.setItem('hds_shop_driver_phone', currentDriverPhone);
+            localStorage.setItem('hds_shop_delivery_time', currentDeliveryTime);
+            
+            // 5. Afficher le bouton de suivi
+            document.getElementById('followDeliveryButton').style.display = 'flex';
+            
+            // 6. Fermer le modal
+            closeConfirmation();
+            
+            // 7. Afficher un message de confirmation
+            showNotification("✅ Commande validée ! Vous pouvez suivre votre livraison.");
+        }
+
+        // ==================== FONCTIONS SUIVI EN DIRECT ====================
+        function openDeliveryTrackerModal() {
+            // Remplir les informations dans le modal
+            document.getElementById('modalOrderCode').textContent = currentOrderCode;
+            document.getElementById('modalConfirmationCode').textContent = currentConfirmationCode;
+            document.getElementById('modalDriverName').textContent = currentDriverName;
+            document.getElementById('modalDriverPhone').textContent = currentDriverPhone;
+            document.getElementById('modalDeliveryTime').textContent = currentDeliveryTime;
+            
+            // Ouvrir le modal
+            document.getElementById('deliveryTrackerModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeDeliveryTrackerModal() {
+            document.getElementById('deliveryTrackerModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function startRealisticDeliveryTracker() {
+            // Réinitialiser la progression
+            let deliveryProgress = 0;
+            let currentStep = 0;
+            
+            // Réinitialiser les étapes
+            ['modalStep1', 'modalStep2', 'modalStep3', 'modalStep4'].forEach(step => {
+                document.getElementById(step).style.background = 'var(--primary-white)';
+                document.getElementById(step).style.borderColor = 'var(--gray-400)';
+            });
+            document.getElementById('modalStep1').style.borderColor = '#4CAF50';
+            
+            document.getElementById('modalDeliveryProgress').style.width = '0%';
+            document.getElementById('modalDeliveryStatus').textContent = 'En préparation';
+            document.getElementById('modalDeliveryStatus').style.background = '#FF980020';
+            document.getElementById('modalDeliveryStatus').style.color = '#FF9800';
+            document.getElementById('modalDeliveryStatus').style.borderColor = '#FF980030';
+            
+            // Messages réalistes pour chaque étape
+            const statusMessages = [
+                {progress: 0, message: "🛒 Commande confirmée", status: "En préparation"},
+                {progress: 25, message: "👨‍🍳 Préparation en cours", status: "En cuisine"},
+                {progress: 50, message: "📦 Emballage terminé", status: "Prêt à partir"},
+                {progress: 75, message: "🛵 En route vers vous", status: "En livraison"},
+                {progress: 100, message: "✅ Livraison effectuée", status: "Livré"}
+            ];
+            
+            let currentMessageIndex = 0;
+            
+            // Démarrer la simulation réaliste
+            if (trackingInterval) clearInterval(trackingInterval);
+            
+            trackingInterval = setInterval(() => {
+                // Avancer progressivement
+                deliveryProgress += 0.3;
+                
+                // Limiter à 100%
+                if (deliveryProgress > 100) deliveryProgress = 100;
+                
+                // Mettre à jour la barre de progression
+                document.getElementById('modalDeliveryProgress').style.width = deliveryProgress + '%';
+                
+                // Vérifier si on doit changer de message
+                if (currentMessageIndex < statusMessages.length - 1 && 
+                    deliveryProgress >= statusMessages[currentMessageIndex + 1].progress) {
+                    currentMessageIndex++;
+                    
+                    // Mettre à jour le statut
+                    document.getElementById('modalDeliveryStatus').textContent = statusMessages[currentMessageIndex].status;
+                    
+                    // Mettre à jour les étapes visuelles
+                    if (currentMessageIndex >= 1) {
+                        document.getElementById('modalStep2').style.borderColor = '#4CAF50';
+                        document.getElementById('modalStep2').style.background = '#4CAF50';
+                    }
+                    if (currentMessageIndex >= 2) {
+                        document.getElementById('modalStep3').style.borderColor = '#4CAF50';
+                        document.getElementById('modalStep3').style.background = '#4CAF50';
+                    }
+                    if (currentMessageIndex >= 3) {
+                        document.getElementById('modalStep4').style.borderColor = '#4CAF50';
+                        document.getElementById('modalStep4').style.background = '#4CAF50';
+                    }
+                    
+                    // Afficher une notification réaliste
+                    if (currentMessageIndex === 1) {
+                        showNotification("👨‍🍳 Votre commande est en cours de préparation");
+                    } else if (currentMessageIndex === 2) {
+                        showNotification("📦 Votre commande est emballée et prête à partir");
+                    } else if (currentMessageIndex === 3) {
+                        showNotification("🛵 Votre livreur est en route !");
+                        document.getElementById('modalDeliveryStatus').style.background = '#2196F320';
+                        document.getElementById('modalDeliveryStatus').style.color = '#2196F3';
+                        document.getElementById('modalDeliveryStatus').style.borderColor = '#2196F330';
+                    }
+                }
+                
+                // Quand c'est terminé
+                if (deliveryProgress >= 100) {
+                    clearInterval(trackingInterval);
+                    document.getElementById('modalDeliveryStatus').textContent = 'Livré !';
+                    document.getElementById('modalDeliveryStatus').style.background = '#4CAF5020';
+                    document.getElementById('modalDeliveryStatus').style.color = '#4CAF50';
+                    document.getElementById('modalDeliveryStatus').style.borderColor = '#4CAF5030';
+                    
+                    // Notification finale
+                    setTimeout(() => {
+                        showNotification("✅ Livraison effectuée ! Votre commande est arrivée.");
+                        // Cacher le bouton de suivi après livraison
+                        document.getElementById('followDeliveryButton').style.display = 'none';
+                        localStorage.removeItem('hds_shop_order_confirmed');
+                    }, 500);
+                }
+            }, 200);
+        }
+
+        // ==================== FONCTIONS FILTRES ====================
+        function initFilters() {
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    renderProducts();
+                    
+                    // Animation de transition
+                    const grid = document.getElementById('productsGrid');
+                    grid.style.opacity = '0';
+                    setTimeout(() => {
+                        grid.style.transition = 'opacity 0.3s';
+                        grid.style.opacity = '1';
+                    }, 50);
+                });
+            });
+        }
+
+        // ==================== ÉVÉNEMENTS ====================
+        function initEventListeners() {
+            // Bouton détails boutique
+            const toggleDetails = document.getElementById('toggleDetails');
+            const profileDetails = document.getElementById('profileDetails');
+            
+            toggleDetails.addEventListener('click', () => {
+                profileDetails.classList.toggle('active');
+                toggleDetails.classList.toggle('active');
+            });
+            
+            // Bouton boutique
+            const showShopButton = document.getElementById('showShopButton');
+            const shopSection = document.getElementById('shopSection');
+            
+            showShopButton.addEventListener('click', () => {
+                shopSection.classList.toggle('active');
+                showShopButton.classList.toggle('active');
+                if (shopSection.classList.contains('active')) {
+                    setTimeout(() => {
+                        shopSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+            
+            // Ouvrir panier
+            document.getElementById('openCartButton').addEventListener('click', openCart);
+            
+            // Fermer modaux avec overlay
+            document.getElementById('cartModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeCart();
+            });
+            
+            document.getElementById('checkoutModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeCheckout();
+            });
+            
+            document.getElementById('confirmationModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeConfirmation();
+            });
+            
+            document.getElementById('deliveryTrackerModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeDeliveryTrackerModal();
+            });
+            
+            // Image de profil
+            document.getElementById('profileImage').addEventListener('click', function() {
+                showImage(this.src);
+            });
+            
+            // Status
+            document.getElementById('statusText').addEventListener('click', function() {
+                const statuses = [
+                    "🚀 Livraison Express sur Marseille",
+                    "⭐ 4.8/5 sur 2300+ clients",
+                    "🎯 Produits premium garantis",
+                    "🔐 Service discret et professionnel",
+                    "🏪 Ouvert 24h/24 7j/7",
+                    "📱 Suivi en temps réel",
+                    "📍 Livraison GPS en direct",
+                    "🍽️ Service catering professionnel",
+                    "🎊 Organisation d'événements"
+                ];
+                const current = this.querySelector('.status-text').textContent;
+                let newMessage;
+                do {
+                    newMessage = statuses[Math.floor(Math.random() * statuses.length)];
+                } while (newMessage === current);
+                
+                this.querySelector('.status-text').textContent = newMessage;
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+            
+            // Options de livraison
+            document.querySelectorAll('input[name="option_livraison"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const deliveryTimeContainer = document.getElementById('deliveryTimeContainer');
+                    deliveryTimeContainer.classList.toggle('hidden', this.value !== 'Livraison Programmée');
+                });
+            });
+            
+            // Adresse pour estimer les frais
+            const addressInput = document.querySelector('textarea[name="adresse"]');
+            if (addressInput) {
+                addressInput.addEventListener('input', function() {
+                    if (this.value.length > 10) {
+                        const estimate = estimateDeliveryCost(this.value);
+                        document.getElementById('deliveryZoneInput').value = estimate.zone;
+                    }
+                });
             }
-        });
-    }
-    // Pour le bouton "Détails de la boutique"
-    const toggleDetails = document.getElementById('toggleDetails');
-    const profileDetails = document.getElementById('profileDetails');
-    if (toggleDetails && profileDetails) {
-        toggleDetails.addEventListener('click', function() {
-            if (profileDetails.style.display === 'block') {
-                profileDetails.style.display = 'none';
-            } else {
-                profileDetails.style.display = 'block';
-                profileDetails.scrollIntoView({ behavior: 'smooth' });
+            
+            // Redimensionnement fenêtre
+            window.addEventListener('resize', function() {
+                if (deliveryMap) {
+                    setTimeout(() => {
+                        deliveryMap.invalidateSize();
+                    }, 100);
+                }
+                if (trackerMap) {
+                    setTimeout(() => {
+                        trackerMap.invalidateSize();
+                    }, 100);
+                }
+            });
+            
+            // Échap pour fermer modaux
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                }
+            });
+        }
+        
+        function checkActiveOrder() {
+            const orderConfirmed = localStorage.getItem('hds_shop_order_confirmed');
+            if (orderConfirmed === 'true') {
+                document.getElementById('followDeliveryButton').style.display = 'flex';
+                
+                // Charger les infos sauvegardées
+                currentOrderCode = localStorage.getItem('hds_shop_order_code') || 'HDS' + Math.floor(1000 + Math.random() * 9000);
+                currentConfirmationCode = localStorage.getItem('hds_shop_confirmation_code') || Math.floor(100 + Math.random() * 900).toString();
+                currentDriverName = localStorage.getItem('hds_shop_driver_name') || 'Mohamed';
+                currentDriverPhone = localStorage.getItem('hds_shop_driver_phone') || '06 ** ** ** **';
+                currentDeliveryTime = localStorage.getItem('hds_shop_delivery_time') || '35 minutes';
             }
-        });
-    }
-});
-</script>
-  
+        }
+
+        // ==================== FONCTIONS UTILITAIRES ====================
+        function openCart() {
+            document.getElementById('cartModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCart() {
+            document.getElementById('cartModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeCheckout() {
+            document.getElementById('checkoutModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeConfirmation() {
+            document.getElementById('confirmationModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+        }
+        
+        function incrementQuantity(button) {
+            const input = button.parentElement.querySelector('.quantity-input');
+            input.value = parseInt(input.value) + 1;
+            input.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                input.style.transform = 'scale(1)';
+            }, 150);
+        }
+        
+        function decrementQuantity(button) {
+            const input = button.parentElement.querySelector('.quantity-input');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+                input.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    input.style.transform = 'scale(1)';
+                }, 150);
+            }
+        }
+        
+        function showNotification(message, type = 'success') {
+            // Créer une notification temporaire
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'error' ? 'linear-gradient(135deg, #FF5252, #FF1744)' : 'linear-gradient(135deg, #4CAF50, #2E7D32)'};
+                color: white;
+                padding: 16px 24px;
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow-xl);
+                z-index: 4000;
+                animation: slideInRight 0.3s, fadeOut 0.3s 2.7s;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                max-width: 320px;
+                backdrop-filter: blur(10px);
+            `;
+            notification.innerHTML = `
+                <div style="font-size: 20px;">${type === 'error' ? '❌' : '✅'}</div>
+                <div style="flex: 1; font-weight: 600; font-size: 14px;">${message}</div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Ajouter les animations si elles n'existent pas
+            if (!document.getElementById('notification-animations')) {
+                const style = document.createElement('style');
+                style.id = 'notification-animations';
+                style.textContent = `
+                    @keyframes slideInRight {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes fadeOut {
+                        to { opacity: 0; transform: translateY(-20px); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'fadeOut 0.3s forwards';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 300);
+                }
+            }, 2700);
+            
+            notification.addEventListener('click', () => {
+                notification.style.animation = 'fadeOut 0.3s forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            });
+        }
+        
+        function showDeliveryNotification() {
+            const notification = document.getElementById('deliveryNotification');
+            if (notification) {
+                notification.style.display = 'flex';
+                
+                setTimeout(() => {
+                    closeNotification();
+                }, 10000);
+            }
+        }
+        
+        function closeNotification() {
+            const notification = document.getElementById('deliveryNotification');
+            if (notification) {
+                notification.style.display = 'none';
+            }
+        }
+        
+        function showImage(src) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('zoomedImage');
+            img.src = src;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeImage() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function saveCartToStorage() {
+            localStorage.setItem('hds_shop_cart', JSON.stringify(cart));
+        }
+        
+        function loadCartFromStorage() {
+            const savedCart = localStorage.getItem('hds_shop_cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCart();
+            }
+        }
+    </script>
 </body>
-    
-    </html>
+</html>
