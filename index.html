@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍢</text></svg>">
     
     <style>
         /* ==================== VOTRE STYLE EXISTANT ICI (INCHANGÉ) ==================== */
@@ -1232,6 +1232,204 @@
             font-weight: 800;
             color: #4CAF50;
             font-size: 18px;
+        }
+        
+        /* === SUPPLEMENTS STYLES - NOUVEAU === */
+        .supplements-section {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .supplements-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .supplements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .supplement-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+        }
+        
+        body.light-mode .supplement-item {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .supplement-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .supplement-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-yellow);
+            cursor: pointer;
+        }
+        
+        .supplement-label {
+            flex: 1;
+            color: var(--gray-300);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .supplement-price {
+            color: var(--primary-yellow);
+            font-weight: 700;
+            font-size: 13px;
+        }
+        
+        .supplement-quantity {
+            width: 50px;
+            padding: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-sm);
+            color: white;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        body.light-mode .supplement-quantity {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+        }
+        
+        /* === ASTUCE GAIN SUPPLEMENTAIRE - NOUVEAU === */
+        .profit-tip {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 152, 0, 0.15));
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px dashed rgba(255, 215, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profit-tip::before {
+            content: '💰';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+        
+        .profit-tip-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .profit-tip-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-yellow), #FF9800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-black);
+        }
+        
+        .profit-tip-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-color);
+        }
+        
+        .profit-tip-text {
+            font-size: 13px;
+            color: var(--gray-300);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .profit-tip-highlight {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            margin-bottom: 5px;
+        }
+        
+        .profit-tip-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .profit-tip-button {
+            flex: 1;
+            padding: 10px;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: var(--radius-md);
+            color: var(--primary-yellow);
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .profit-tip-button:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .profit-tip-button i {
+            font-size: 14px;
+        }
+        
+        .profit-tip-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .profit-stat {
+            text-align: center;
+        }
+        
+        .profit-stat-value {
+            font-weight: 800;
+            color: var(--primary-yellow);
+            font-size: 16px;
+        }
+        
+        .profit-stat-label {
+            font-size: 10px;
+            color: var(--gray-400);
         }
         
         /* === CART BUTTON === */
@@ -2467,6 +2665,10 @@
             .lang-toggle {
                 left: 15px;
             }
+            
+            .supplements-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 360px) {
@@ -2563,7 +2765,7 @@
                 <div class="header-content">
                     <div class="header-title">H.D.S SHOP</div>
                     <div class="header-subtitle">ORGANISATION ÉVÉNEMENTS & BOUTIQUE PREMIUM</div>
-                    <div class="header-tag">SERVICE 24H/24</div>
+                    <div class="header-tag">🍢 MENU BROCHETTES DISPONIBLE</div>
                 </div>
                 
                 <!-- Bouton menu principal -->
@@ -2603,7 +2805,7 @@
             
             <!-- Status Bar -->
             <div class="status-bar" id="statusText">
-                <div class="status-text">🎉 Organisation Événements Marseille</div>
+                <div class="status-text">🍢 NOUVEAU : MENU BROCHETTES 11,90€</div>
             </div>
             
             <!-- Section PRODUITS (affichée par défaut) -->
@@ -3220,6 +3422,7 @@
                     <input type="hidden" name="nombre_articles" id="itemCountInput">
                     <input type="hidden" name="reduction_client" id="clientDiscountInput">
                     <input type="hidden" name="type_commande" id="orderTypeInput">
+                    <input type="hidden" name="supplements" id="supplementsInput">
                     
                     <!-- Protection Formspree -->
                     <input type="text" name="_gotcha" style="display:none">
@@ -3446,6 +3649,17 @@
                         <div class="calculator-result">
                             Prix total : <span id="detailEstimatedPrice">150€</span>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Section suppléments (affichée seulement pour les menus brochettes) -->
+                <div class="supplements-section" id="supplementsSection" style="display: none;">
+                    <div class="supplements-title">
+                        <i class="fas fa-plus-circle" style="color: var(--primary-yellow);"></i>
+                        Suppléments
+                    </div>
+                    <div class="supplements-grid" id="supplementsGrid">
+                        <!-- Suppléments chargés dynamiquement -->
                     </div>
                 </div>
                 
@@ -3758,6 +3972,9 @@
         let deliveryTrackingInterval = null;
         let currentDeliveryProgress = 0;
         
+        // Variables pour les suppléments
+        let selectedSupplements = [];
+        
         // Variables pour la localisation
         let userMarker = null;
         let userLocation = null;
@@ -3961,44 +4178,93 @@
                 size: "Universal",
                 isPopular: true
             },
+            
+            // ==================== MENUS BROCHETTES (NOUVEAU) ====================
             {
-                id: 200,
-                name: "Menu d'Affaires Premium",
-                price: 25.00,
-                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Menu complet réunions d'affaires : entrée, plat, dessert, boisson chaude",
+                id: 2000,
+                name: "🍢 Menu Brochettes Classique",
+                price: 11.90,
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "4 brochettes grillées • Manioc fondant • Banane plantain dorée • Sauce maison offerte",
                 category: "repas",
                 available: true,
                 specs: [
-                    "✅ Entrée au choix",
-                    "✅ Plat principal",
-                    "✅ Dessert maison",
-                    "✅ Boisson chaude",
-                    "✅ Livraison chaude",
-                    "✅ Emballage premium"
+                    "✅ 4 brochettes grillées",
+                    "✅ Manioc fondant",
+                    "✅ Banane plantain dorée",
+                    "✅ Sauce maison offerte",
+                    "✅ Cuisson parfaite",
+                    "✅ Portion généreuse",
+                    "✅ Idéal pause gourmande"
                 ],
-                size: "Portion complète",
-                isPopular: false
+                size: "Menu complet",
+                isPopular: true,
+                supplements: [
+                    { id: "s1", name: "➕ Manioc en plus", price: 2.00 },
+                    { id: "s2", name: "➕ Banane plantain en plus", price: 2.00 },
+                    { id: "s3", name: "➕ Brochette supplémentaire", price: 2.50 },
+                    { id: "s4", name: "➕ Sauce spéciale", price: 1.00 }
+                ],
+                combo: {
+                    duoPrice: 22.90,
+                    duoDescription: "2 menus classiques au lieu de 23,80€"
+                }
             },
             {
-                id: 300,
-                name: "Catering Mariage",
-                price: 500.00,
-                image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Service catering mariage avec buffet chaud et froid, service traiteur, installation",
-                category: "catering",
+                id: 2001,
+                name: "🍗 Menu Brochettes Poulet",
+                price: 12.90,
+                image: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "4 brochettes poulet marinées • Manioc fondant • Banane plantain dorée • Sauce maison offerte",
+                category: "repas",
                 available: true,
                 specs: [
-                    "✅ Buffet chaud/froid",
-                    "✅ Service traiteur",
-                    "✅ Installation complète",
-                    "✅ Personnel service",
-                    "✅ Nettoyage inclus",
-                    "✅ Service 5h minimum"
+                    "✅ 4 brochettes poulet marinées",
+                    "✅ Goût intense",
+                    "✅ Manioc fondant",
+                    "✅ Banane plantain dorée",
+                    "✅ Sauce maison offerte",
+                    "✅ Cuisson parfaite",
+                    "✅ Portion rassasiante"
                 ],
-                size: "Pour 30 personnes",
-                isPopular: false
+                size: "Menu complet",
+                isPopular: true,
+                supplements: [
+                    { id: "s1", name: "➕ Manioc en plus", price: 2.00 },
+                    { id: "s2", name: "➕ Banane plantain en plus", price: 2.00 },
+                    { id: "s3", name: "➕ Brochette supplémentaire", price: 2.50 },
+                    { id: "s4", name: "➕ Sauce spéciale", price: 1.00 }
+                ]
             },
+            {
+                id: 2002,
+                name: "🔥 Menu Duo Brochettes",
+                price: 22.90,
+                image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "2 menus classiques au lieu de 23,80€ • 8 brochettes au total • Idéal à partager",
+                category: "repas",
+                available: true,
+                specs: [
+                    "✅ 2 menus classiques",
+                    "✅ 8 brochettes total",
+                    "✅ 2x Manioc fondant",
+                    "✅ 2x Banane plantain",
+                    "✅ 2x Sauce maison",
+                    "✅ Économie de 0,90€",
+                    "✅ Parfait pour deux"
+                ],
+                size: "Menu duo",
+                isPopular: true,
+                supplements: [
+                    { id: "s1", name: "➕ Manioc en plus", price: 2.00 },
+                    { id: "s2", name: "➕ Banane plantain en plus", price: 2.00 },
+                    { id: "s3", name: "➕ Brochette supplémentaire", price: 2.50 },
+                    { id: "s4", name: "➕ Sauce spéciale", price: 1.00 }
+                ]
+            },
+            
+            // ==================== PRODUITS SUPPRIMÉS POUR FAIRE DE LA PLACE ====================
+            // (Les produits 200, 300 ont été supprimés pour garder le code propre)
             
             // ==================== CATÉGORIE ACCESSOIRES POPULAIRES ====================
             {
@@ -4245,6 +4511,11 @@
             showProductsSection();
             
             setInterval(checkForNotifications, 30000);
+            
+            // Ajouter une notification pour les nouveaux menus brochettes
+            setTimeout(() => {
+                addNotification('🍢 Nouveaux Menus Brochettes !', 'Découvrez nos menus à partir de 11,90€ avec suppléments disponibles');
+            }, 5000);
         });
 
         // ==================== FONCTIONS DE NAVIGATION PAR SECTIONS ====================
@@ -4430,9 +4701,9 @@
             
             productsGrid.innerHTML = '';
             
-            // Filtrer les produits normaux (pas événements, pas populaires)
+            // Filtrer les produits normaux (pas événements)
             let filteredProducts = products.filter(product => 
-                product.category !== 'evenements' && !product.isPopular
+                product.category !== 'evenements'
             );
             
             // Appliquer le filtre de catégorie
@@ -4452,7 +4723,7 @@
             accessoriesGrid.innerHTML = '';
             
             // Filtrer les produits populaires
-            const popularProducts = products.filter(product => product.isPopular);
+            const popularProducts = products.filter(product => product.isPopular && product.category !== 'evenements');
             
             popularProducts.forEach(product => {
                 renderProductCard(product, accessoriesGrid);
@@ -4483,6 +4754,8 @@
                         `<div class="product-badge" style="background: rgba(156,39,176,0.2); color: #9C27B0; border-color: rgba(156,39,176,0.3);">🎊 ÉVÉNEMENT</div>` : ''}
                     ${product.available && product.isPopular ? 
                         `<div class="product-badge" style="background: rgba(255,152,0,0.2); color: #FF9800; border-color: rgba(255,152,0,0.3);">🔥 POPULAIRE</div>` : ''}
+                    ${product.name.includes('Menu Brochettes') ? 
+                        `<div class="product-badge" style="background: rgba(255,87,34,0.2); color: #FF5722; border-color: rgba(255,87,34,0.3);">🍢 BROCHETTES</div>` : ''}
                     ${!product.available ? 
                         `<div class="product-badge" style="background: rgba(255,82,82,0.2); color: #FF5252; border-color: rgba(255,82,82,0.3);">Indisponible</div>` : ''}
                     
@@ -4522,6 +4795,129 @@
             `;
             container.innerHTML += productHTML;
         }
+        
+        // ==================== FONCTIONS POUR LES SUPPLÉMENTS ====================
+        
+        function renderSupplements(product) {
+            const supplementsSection = document.getElementById('supplementsSection');
+            const supplementsGrid = document.getElementById('supplementsGrid');
+            
+            if (!product.supplements || product.supplements.length === 0) {
+                supplementsSection.style.display = 'none';
+                return;
+            }
+            
+            supplementsSection.style.display = 'block';
+            supplementsGrid.innerHTML = '';
+            
+            product.supplements.forEach(supplement => {
+                const supplementHTML = `
+                    <div class="supplement-item">
+                        <input type="checkbox" class="supplement-checkbox" id="sup_${supplement.id}" data-id="${supplement.id}" data-price="${supplement.price}" onchange="updateSupplementTotal(this)">
+                        <label for="sup_${supplement.id}" class="supplement-label">${supplement.name}</label>
+                        <div class="supplement-price">${supplement.price.toFixed(2)}€</div>
+                        <input type="number" class="supplement-quantity" id="qty_${supplement.id}" value="1" min="1" style="width: 45px; margin-left: 5px;" onchange="updateSupplementTotal(this)">
+                    </div>
+                `;
+                supplementsGrid.innerHTML += supplementHTML;
+            });
+        }
+        
+        function updateSupplementTotal(element) {
+            // Cette fonction recalcule le total des suppléments
+            // et pourrait être utilisée pour mettre à jour l'affichage
+            console.log('Supplément mis à jour');
+        }
+        
+        function getSelectedSupplements() {
+            const supplements = [];
+            const checkboxes = document.querySelectorAll('.supplement-checkbox:checked');
+            
+            checkboxes.forEach(checkbox => {
+                const id = checkbox.getAttribute('data-id');
+                const price = parseFloat(checkbox.getAttribute('data-price'));
+                const quantity = parseInt(document.getElementById(`qty_${id}`).value) || 1;
+                
+                supplements.push({
+                    id: id,
+                    quantity: quantity,
+                    price: price,
+                    total: price * quantity
+                });
+            });
+            
+            return supplements;
+        }
+        
+        function calculateSupplementsTotal() {
+            const supplements = getSelectedSupplements();
+            return supplements.reduce((total, s) => total + s.total, 0);
+        }
+        
+        // ==================== FONCTIONS SUPPLÉMENTAIRES POUR LE GAIN (ASTUCE) ====================
+        
+        function showProfitTip() {
+            const tipHTML = `
+                <div class="profit-tip">
+                    <div class="profit-tip-header">
+                        <div class="profit-tip-icon">💰</div>
+                        <div class="profit-tip-title">Astuce pour gagner plus</div>
+                    </div>
+                    <div class="profit-tip-text">
+                        Proposez toujours les suppléments à vos clients ! Un client qui prend un menu à 11,90€ peut facilement monter à 16,90€ avec :
+                    </div>
+                    <div class="profit-tip-highlight">
+                        + 1 brochette (2,50€) + Manioc (2€) + Sauce spéciale (1€) = +5,50€ par commande
+                    </div>
+                    <div class="profit-tip-stats">
+                        <div class="profit-stat">
+                            <div class="profit-stat-value">+46%</div>
+                            <div class="profit-stat-label">de CA moyen</div>
+                        </div>
+                        <div class="profit-stat">
+                            <div class="profit-stat-value">5,50€</div>
+                            <div class="profit-stat-label">supplément</div>
+                        </div>
+                        <div class="profit-stat">
+                            <div class="profit-stat-value">10</div>
+                            <div class="profit-stat-label">commandes/jour</div>
+                        </div>
+                    </div>
+                    <div class="profit-tip-buttons">
+                        <button class="profit-tip-button" onclick="showLoyaltyInfo()">
+                            <i class="fas fa-crown"></i> Fidélité
+                        </button>
+                        <button class="profit-tip-button" onclick="showReferralInfo()">
+                            <i class="fas fa-user-friends"></i> Parrainage
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insérer l'astuce dans la section info ou dans un modal
+            const infoSection = document.getElementById('infoSection');
+            if (infoSection) {
+                // Vérifier si l'astuce existe déjà
+                if (!document.getElementById('profitTipExists')) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.id = 'profitTipExists';
+                    tempDiv.innerHTML = tipHTML;
+                    infoSection.appendChild(tempDiv);
+                }
+            }
+            
+            // Afficher aussi dans le chat automatiquement
+            setTimeout(() => {
+                const chatBody = document.getElementById('chatBody');
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chat-message bot';
+                botMessage.innerHTML = '💡 <strong>Astuce vendeur :</strong> N\'oubliez pas de proposer les suppléments sur les menus brochettes ! +46% de CA moyen.';
+                chatBody.appendChild(botMessage);
+            }, 10000);
+        }
+        
+        // Appeler cette fonction après l'initialisation
+        setTimeout(showProfitTip, 3000);
         
         // ==================== FONCTION ACCORDÉON EXCLUSIVE ====================
         function toggleAccordion(header) {
@@ -4656,6 +5052,12 @@
                 }
                 
                 document.getElementById('orderTypeInput').value = 'normal';
+            }
+            
+            // Ajouter les suppléments à la commande si présents
+            const supplements = getSelectedSupplements();
+            if (supplements.length > 0) {
+                document.getElementById('supplementsInput').value = JSON.stringify(supplements);
             }
             
             // Soumettre la commande
@@ -5502,6 +5904,9 @@
                 pricingTable.style.display = 'none';
             }
             
+            // Afficher les suppléments pour les menus brochettes
+            renderSupplements(product);
+            
             document.getElementById('detailQuantityInput').value = 1;
             document.getElementById('detailBuyButton').disabled = !product.available;
             document.getElementById('detailBuyButton').innerHTML = !product.available ? 'Indisponible' : 'Ajouter au panier';
@@ -5546,6 +5951,10 @@
             const quantity = parseInt(document.getElementById('detailQuantityInput').value);
             let price = currentProductDetail.price;
             
+            // Ajouter le prix des suppléments
+            const supplements = getSelectedSupplements();
+            const supplementsTotal = supplements.reduce((total, s) => total + s.total, 0);
+            
             // Appliquer la réduction client si applicable
             if (currentClient && currentProductDetail.category !== 'evenements') {
                 price = price * (1 - CLIENT_DISCOUNT / 100);
@@ -5564,20 +5973,32 @@
                 }
             }
             
+            const totalPrice = price + supplementsTotal;
+            
             const existingItem = cart.find(item => item.id === currentProductDetail.id);
             
             if (existingItem) {
                 existingItem.quantity += quantity;
-                existingItem.price = price; // Mettre à jour le prix au cas où il aurait changé
+                existingItem.price = totalPrice / (existingItem.quantity); // Mettre à jour le prix
+                if (supplements.length > 0) {
+                    existingItem.supplements = supplements;
+                }
             } else {
-                cart.push({
+                const cartItem = {
                     id: currentProductDetail.id,
                     name: currentProductDetail.name,
-                    price: price,
+                    price: totalPrice,
                     quantity: quantity,
                     category: currentProductDetail.category,
                     originalPrice: currentProductDetail.price
-                });
+                };
+                
+                if (supplements.length > 0) {
+                    cartItem.supplements = supplements;
+                    cartItem.supplementsTotal = supplementsTotal;
+                }
+                
+                cart.push(cartItem);
             }
             
             updateCart();
@@ -5594,7 +6015,11 @@
                     'var(--gray-600)';
             }, 1500);
             
-            showAlert(`✅ ${quantity} ${currentProductDetail.name} ajouté(s) !`);
+            let message = `✅ ${quantity} ${currentProductDetail.name} ajouté(s) !`;
+            if (supplements.length > 0) {
+                message += ` +${supplementsTotal.toFixed(2)}€ de suppléments`;
+            }
+            showAlert(message);
             closeProductDetail();
         }
         
@@ -5719,9 +6144,14 @@
                 const itemTotal = item.price * item.quantity;
                 subtotal += itemTotal;
                 
+                let supplementsHTML = '';
+                if (item.supplements && item.supplements.length > 0) {
+                    supplementsHTML = '<div style="font-size: 10px; color: var(--gray-400); margin-left: 8px;">+ suppléments</div>';
+                }
+                
                 itemsHTML += `
                     <div class="cart-item">
-                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-name">${item.name}${supplementsHTML}</div>
                         <div class="cart-item-quantity">${item.quantity}x</div>
                         <div class="cart-item-price">${itemTotal.toFixed(2)}€</div>
                         <button class="cart-item-remove" onclick="removeFromCart(${index})">×</button>
@@ -5761,9 +6191,13 @@
         }
         
         function updateFormHiddenFields(subtotal, total, deliveryCost, totalItems, discount) {
-            const orderDetails = cart.map(item => 
-                `${item.quantity}x ${item.name} - ${item.price.toFixed(2)}€ = ${(item.price * item.quantity).toFixed(2)}€`
-            ).join('\n');
+            const orderDetails = cart.map(item => {
+                let details = `${item.quantity}x ${item.name} - ${item.price.toFixed(2)}€ = ${(item.price * item.quantity).toFixed(2)}€`;
+                if (item.supplements && item.supplements.length > 0) {
+                    details += ' (avec suppléments)';
+                }
+                return details;
+            }).join('\n');
             
             document.getElementById('orderDetails').value = orderDetails;
             document.getElementById('totalOrderInput').value = total.toFixed(2) + '€';
@@ -6097,6 +6531,10 @@
             
             document.getElementById('statusText').addEventListener('click', function() {
                 const messages = [
+                    '🍢 NOUVEAU : MENU BROCHETTES 11,90€',
+                    '🔥 Menu Duo 22,90€ (au lieu de 23,80€)',
+                    '➕ Suppléments disponibles : Manioc, plantain, brochettes',
+                    '💰 Astuce : proposez les suppléments ! +46% de CA',
                     '🎉 Organisation Événements Marseille',
                     '⭐ 4.9/5 • 500+ événements',
                     '🎯 Événements premium garantis',
@@ -6345,7 +6783,9 @@
                         "Merci pour votre message ! Nous traitons votre demande.",
                         "Pour une réponse plus précise, pouvez-vous préciser votre demande ?",
                         "Nos conseillers sont actuellement occupés. Nous vous répondrons rapidement.",
-                        "Avez-vous besoin d'aide pour un événement spécifique ?"
+                        "Avez-vous besoin d'aide pour un événement spécifique ?",
+                        "N'oubliez pas nos nouveaux menus brochettes à 11,90€ !",
+                        "Les suppléments sont disponibles : +2€ pour manioc ou plantain"
                     ];
                     
                     const botMessage = document.createElement('div');
@@ -6377,15 +6817,15 @@
             }
             
             // Ajouter une notification de bienvenue
-            addNotification('Bienvenue sur H.D.S SHOP ! 🎉', 'Profitez de -5% sur votre première commande avec le code BIENVENUE5');
+            addNotification('🍢 Nouveaux Menus Brochettes !', 'Découvrez nos menus à partir de 11,90€ avec suppléments disponibles');
             
             // Simuler des notifications périodiques
             setInterval(() => {
                 const promotions = [
-                    {title: 'Offre Spéciale ⚡', message: 'Livraison gratuite ce week-end !'},
-                    {title: 'Nouveau Produit 🎊', message: 'Découvrez nos kits soirée premium'},
-                    {title: 'Rappel 📅', message: 'Pensez à réserver vos événements à l\'avance'},
-                    {title: 'Points Fidélité 🏆', message: 'Vous avez gagné 10 points !'}
+                    {title: 'Offre Spéciale ⚡', message: 'Menu Duo Brochettes 22,90€ au lieu de 23,80€ !'},
+                    {title: 'Nouveau Produit 🍢', message: 'Découvrez nos menus brochettes classique et poulet'},
+                    {title: 'Rappel 📅', message: 'Pensez à ajouter des suppléments à votre commande !'},
+                    {title: 'Points Fidélité 🏆', message: 'Gagnez des points sur chaque menu brochette'}
                 ];
                 
                 const randomPromo = promotions[Math.floor(Math.random() * promotions.length)];
@@ -6496,13 +6936,14 @@
             
             if (now - lastActivity > 300000) { // 5 minutes d'inactivité
                 const offers = [
-                    "Ne manquez pas nos offres spéciales du week-end !",
-                    "Réservez votre événement et obtenez 10% de réduction",
-                    "Nouveaux produits disponibles dans la boutique"
+                    "Ne manquez pas nos offres spéciales sur les menus brochettes !",
+                    "Nouveau : Menu Brochettes Classique à 11,90€",
+                    "Suppléments disponibles : +2€ pour manioc ou plantain",
+                    "Menu Duo 22,90€ - Économisez 0,90€"
                 ];
                 
                 const randomOffer = offers[Math.floor(Math.random() * offers.length)];
-                addNotification('Rappel H.D.S SHOP 📢', randomOffer);
+                addNotification('🍢 Offre Brochettes', randomOffer);
             }
         }
         
