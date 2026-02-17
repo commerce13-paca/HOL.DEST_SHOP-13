@@ -46,7 +46,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍢</text></svg>">
     
     <style>
-        /* ==================== VOTRE STYLE EXISTANT ICI (INCHANGÉ) ==================== */
+        /* ==================== VOTRE STYLE EXISTANT (INCHANGÉ) ==================== */
         /* === RESET & BASE STYLES === */
         * {
             margin: 0;
@@ -644,7 +644,7 @@
             margin-top: 4px;
         }
         
-        /* === DELIVERY MAP COMPACT === */
+        /* === DELIVERY MAP COMPACT - CORRIGÉ POUR RESTER DANS LA SECTION === */
         .map-container {
             height: 250px;
             background: rgba(0, 0, 0, 0.3);
@@ -652,6 +652,9 @@
             overflow: hidden;
             border: 2px solid rgba(255, 215, 0, 0.2);
             margin-bottom: 10px;
+            width: 100%;
+            position: relative;
+            z-index: 5;
         }
         
         .map-legend {
@@ -660,6 +663,8 @@
             font-size: 11px;
             color: var(--gray-400);
             padding: 10px 0;
+            flex-wrap: wrap;
+            gap: 5px;
         }
         
         .legend-item {
@@ -848,7 +853,7 @@
             margin-top: 8px;
         }
         
-        /* === PRODUCTS GRID IMPROVED === */
+        /* === PRODUCTS GRID IMPROVED - IMAGES AGRANDIES ET FIXES === */
         .products-section {
             padding: 15px;
         }
@@ -929,20 +934,22 @@
         .product-image-container {
             position: relative;
             width: 100%;
-            height: 140px;
+            height: 180px; /* Augmenté de 140px à 180px */
             background: rgba(0, 0, 0, 0.3);
             border-radius: var(--radius-md);
             overflow: hidden;
             margin-bottom: 12px;
+            border: 2px solid var(--gray-700); /* Bordure grise fixe */
         }
         
         .product-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Garde le ratio mais contient dans le cadre */
             padding: 10px;
             transition: var(--transition-normal);
             cursor: pointer;
+            background: var(--gray-900); /* Fond gris pour les images */
         }
         
         .product-image:hover {
@@ -960,6 +967,7 @@
             font-size: 10px;
             font-weight: 700;
             border: 1px solid rgba(76, 175, 80, 0.3);
+            z-index: 2;
         }
         
         .product-name {
@@ -1613,19 +1621,32 @@
             flex: 1;
             position: relative;
             overflow: hidden;
+            background: #000;
+        }
+        
+        .story-slide {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: none;
+        }
+        
+        .story-slide.active {
+            display: block;
         }
         
         .story-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             background: #000;
         }
         
         .story-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: #000;
         }
         
         .story-progress {
@@ -2405,7 +2426,7 @@
             backdrop-filter: blur(10px);
         }
         
-        /* === NOTIFICATIONS PUSH === */
+        /* === NOTIFICATIONS PUSH - AMÉLIORÉ AVEC VRAI SON === */
         .notification-bell {
             position: fixed;
             bottom: 160px;
@@ -2444,6 +2465,14 @@
             background: #FF5252;
             border-radius: 50%;
             border: 2px solid var(--card-bg);
+            animation: pulse 1s infinite;
+        }
+        
+        /* Animation pour les notifications */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
         
         /* === FIDÉLITÉ POINTS === */
@@ -2529,22 +2558,6 @@
             100% { background-position: 200% 0; }
         }
         
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                box-shadow: 
-                    0 4px 8px rgba(255, 215, 0, 0.3),
-                    0 0 0 2px rgba(0,0,0,0.8);
-            }
-            50% { 
-                transform: scale(1.1);
-                box-shadow: 
-                    0 4px 12px rgba(255, 215, 0, 0.5),
-                    0 0 0 2px rgba(0,0,0,0.8),
-                    0 0 15px rgba(255, 215, 0, 0.3);
-            }
-        }
-        
         @keyframes storyProgress {
             from { width: 0%; }
             to { width: 100%; }
@@ -2606,7 +2619,7 @@
             }
             
             .product-image-container {
-                height: 160px;
+                height: 200px; /* Augmenté pour mobile */
             }
             
             .map-container {
@@ -2748,6 +2761,10 @@
     </style>
 </head>
 <body>
+    <!-- Audio pour notifications -->
+    <audio id="notificationSound" preload="auto" style="display: none;">
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+    </audio>
     <!-- Main Container -->
     <div class="main-container">
         <div class="profile-container">
@@ -3487,7 +3504,7 @@
         </div>
     </div>
     
-    <!-- Stories Snapchat Style Modal - MIS À JOUR AVEC VOS VIDÉOS -->
+    <!-- Stories Snapchat Style Modal - CORRIGÉ AVEC VIDÉOS -->
     <div class="modal-overlay" id="storiesModalOverlay">
         <div class="app-modal stories-modal">
             <div class="stories-container">
@@ -3522,11 +3539,11 @@
                     </div>
                 </div>
                 
-                <!-- Contenu des stories - VOS 5 VIDÉOS INTÉGRÉES -->
+                <!-- Contenu des stories - VOS 5 VIDÉOS AVEC IDS UNIQUES -->
                 <div class="story-content" id="storySlides">
                     <!-- Story 1 - Votre première vidéo -->
                     <div class="story-slide active" id="storySlide1">
-                        <video controls autoplay muted loop class="story-video">
+                        <video id="storyVideo1" controls muted loop class="story-video" playsinline>
                             <source src="https://files.catbox.moe/w1ic5k.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
@@ -3537,8 +3554,8 @@
                     </div>
                     
                     <!-- Story 2 - Votre deuxième vidéo -->
-                    <div class="story-slide" id="storySlide2" style="display: none;">
-                        <video controls muted loop class="story-video">
+                    <div class="story-slide" id="storySlide2">
+                        <video id="storyVideo2" controls muted loop class="story-video" playsinline>
                             <source src="https://files.catbox.moe/n5in11.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
@@ -3549,8 +3566,8 @@
                     </div>
                     
                     <!-- Story 3 - Votre troisième vidéo -->
-                    <div class="story-slide" id="storySlide3" style="display: none;">
-                        <video controls muted loop class="story-video">
+                    <div class="story-slide" id="storySlide3">
+                        <video id="storyVideo3" controls muted loop class="story-video" playsinline>
                             <source src="https://files.catbox.moe/697ow1.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
@@ -3561,8 +3578,8 @@
                     </div>
                     
                     <!-- Story 4 - Votre quatrième vidéo -->
-                    <div class="story-slide" id="storySlide4" style="display: none;">
-                        <video controls muted loop class="story-video">
+                    <div class="story-slide" id="storySlide4">
+                        <video id="storyVideo4" controls muted loop class="story-video" playsinline>
                             <source src="https://files.catbox.moe/cdff7j.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
@@ -3573,8 +3590,8 @@
                     </div>
                     
                     <!-- Story 5 - Votre cinquième vidéo -->
-                    <div class="story-slide" id="storySlide5" style="display: none;">
-                        <video controls muted loop class="story-video">
+                    <div class="story-slide" id="storySlide5">
+                        <video id="storyVideo5" controls muted loop class="story-video" playsinline>
                             <source src="https://files.catbox.moe/fcgddg.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
                         </video>
@@ -3984,6 +4001,11 @@
         let currentClient = null;
         const CLIENT_DISCOUNT = 5; // 5% de réduction
         
+        // Variables pour les stories
+        let currentStoryIndex = 1;
+        let storyTimer = null;
+        let storyProgresses = [0, 0, 0, 0, 0];
+        
         // ADRESSE EXACTE DU MAGASIN (pour calculs internes seulement)
         const SHOP_LOCATION = [43.3275, 5.3735]; // 134 avenue de Saint-Antoine, 13015 Marseille
         const SHOP_ADDRESS = "134 avenue de Saint-Antoine, 13015 Marseille"; // Pour calculs seulement
@@ -3997,12 +4019,6 @@
             'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
         ];
-        
-        // Variables pour les stories
-        let currentStoryIndex = 1;
-        let storyTimer = null;
-        let storyTimeouts = [];
-        let storyProgresses = [0, 0, 0, 0, 0];
         
         // Tous les produits - ORGANISATION AMÉLIORÉE
         let products = [
@@ -4264,7 +4280,6 @@
             },
             
             // ==================== PRODUITS SUPPRIMÉS POUR FAIRE DE LA PLACE ====================
-            // (Les produits 200, 300 ont été supprimés pour garder le code propre)
             
             // ==================== CATÉGORIE ACCESSOIRES POPULAIRES ====================
             {
@@ -4540,6 +4555,9 @@
             
             // Fermer le menu si ouvert
             if (menuOpen) toggleMenu();
+            
+            // Ajouter la ligne de scrollIntoView
+            document.querySelector('.quick-nav').scrollIntoView({ behavior: 'smooth' });
         }
         
         function showAccessoriesSection() {
@@ -4561,6 +4579,9 @@
             
             // Fermer le menu si ouvert
             if (menuOpen) toggleMenu();
+            
+            // Ajouter la ligne de scrollIntoView
+            document.querySelector('.quick-nav').scrollIntoView({ behavior: 'smooth' });
         }
         
         function showEventsSection() {
@@ -4582,6 +4603,9 @@
             
             // Fermer le menu si ouvert
             if (menuOpen) toggleMenu();
+            
+            // Ajouter la ligne de scrollIntoView
+            document.querySelector('.quick-nav').scrollIntoView({ behavior: 'smooth' });
         }
         
         function showInfoSection() {
@@ -4600,6 +4624,9 @@
             
             // Fermer le menu si ouvert
             if (menuOpen) toggleMenu();
+            
+            // Ajouter la ligne de scrollIntoView
+            document.querySelector('.quick-nav').scrollIntoView({ behavior: 'smooth' });
         }
         
         function scrollToSection(sectionId) {
@@ -4623,6 +4650,9 @@
             
             // Fermer le menu si ouvert
             if (menuOpen) toggleMenu();
+            
+            // Ajouter la ligne de scrollIntoView
+            document.querySelector('.quick-nav').scrollIntoView({ behavior: 'smooth' });
         }
         
         function updateActiveNavButton(section) {
@@ -5629,7 +5659,7 @@
                     .addTo(deliveryMap)
                     .bindPopup(`
                         <b>H.D.S SHOP Événements</b><br>
-                        <small>📍 134 avenue de Saint-Antoine</small>
+                        <small>📍 2 boulevard boulevard de casanova</small>
                     `)
                     .openPopup();
                 
@@ -5715,7 +5745,7 @@
             }).addTo(deliveryMap).bindPopup('🔵 Zone Éloignée<br>10+ km • 6-8€ supplément');
         }
         
-        // ==================== STORIES SNAPCHAT STYLE AVEC VOS VIDÉOS ====================
+        // ==================== STORIES SNAPCHAT STYLE AVEC SON AUTOMATIQUE CORRIGÉ ====================
         function openStories() {
             document.getElementById('storiesModalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -5723,24 +5753,41 @@
             // Réinitialiser l'index
             currentStoryIndex = 1;
             
-            // Réinitialiser toutes les slides
+            // Masquer toutes les slides
             for (let i = 1; i <= 5; i++) {
-                document.getElementById(`storySlide${i}`).style.display = 'none';
+                document.getElementById(`storySlide${i}`).classList.remove('active');
+                const video = document.getElementById(`storyVideo${i}`);
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.muted = false; // Son activé par défaut
+                }
             }
-            document.getElementById('storySlide1').style.display = 'block';
+            
+            // Afficher la première slide
+            document.getElementById('storySlide1').classList.add('active');
+            
+            // Jouer la première vidéo avec son
+            const firstVideo = document.getElementById('storyVideo1');
+            if (firstVideo) {
+                // Essayer de jouer avec son
+                const playPromise = firstVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Autoplay avec son bloqué, tentative avec muted temporaire");
+                        // Si autoplay avec son est bloqué, on essaie en muted puis on unmute
+                        firstVideo.muted = true;
+                        firstVideo.play().then(() => {
+                            setTimeout(() => {
+                                firstVideo.muted = false;
+                            }, 100);
+                        });
+                    });
+                }
+            }
             
             // Démarrer la progression de la première story
             startStoryProgress(currentStoryIndex);
-            
-            // Pause toutes les vidéos
-            pauseAllVideos();
-            
-            // Jouer la première vidéo
-            const firstVideo = document.querySelector('#storySlide1 video');
-            if (firstVideo) {
-                firstVideo.currentTime = 0;
-                firstVideo.play().catch(e => console.log("Autoplay bloqué, l'utilisateur devra cliquer", e));
-            }
             
             // Fermer le menu si ouvert
             if (menuOpen) {
@@ -5759,25 +5806,50 @@
             }
             
             // Arrêter toutes les vidéos
-            pauseAllVideos();
+            for (let i = 1; i <= 5; i++) {
+                const video = document.getElementById(`storyVideo${i}`);
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.muted = true;
+                }
+            }
         }
         
         function nextStory() {
+            // Arrêter la vidéo actuelle
+            const currentVideo = document.getElementById(`storyVideo${currentStoryIndex}`);
+            if (currentVideo) {
+                currentVideo.pause();
+            }
+            
             if (currentStoryIndex < 5) {
                 // Cacher la slide actuelle
-                document.getElementById(`storySlide${currentStoryIndex}`).style.display = 'none';
+                document.getElementById(`storySlide${currentStoryIndex}`).classList.remove('active');
                 
                 // Passer à la suivante
                 currentStoryIndex++;
                 
                 // Afficher la nouvelle slide
-                document.getElementById(`storySlide${currentStoryIndex}`).style.display = 'block';
+                document.getElementById(`storySlide${currentStoryIndex}`).classList.add('active');
                 
-                // Jouer la vidéo
-                const currentVideo = document.querySelector(`#storySlide${currentStoryIndex} video`);
-                if (currentVideo) {
-                    currentVideo.currentTime = 0;
-                    currentVideo.play().catch(e => console.log("Autoplay bloqué", e));
+                // Jouer la nouvelle vidéo avec son
+                const nextVideo = document.getElementById(`storyVideo${currentStoryIndex}`);
+                if (nextVideo) {
+                    nextVideo.currentTime = 0;
+                    nextVideo.muted = false;
+                    const playPromise = nextVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log("Autoplay avec son bloqué pour vidéo suivante, tentative avec muted");
+                            nextVideo.muted = true;
+                            nextVideo.play().then(() => {
+                                setTimeout(() => {
+                                    nextVideo.muted = false;
+                                }, 100);
+                            });
+                        });
+                    }
                 }
                 
                 // Démarrer la progression pour cette story
@@ -5789,34 +5861,43 @@
         }
         
         function prevStory() {
+            // Arrêter la vidéo actuelle
+            const currentVideo = document.getElementById(`storyVideo${currentStoryIndex}`);
+            if (currentVideo) {
+                currentVideo.pause();
+            }
+            
             if (currentStoryIndex > 1) {
                 // Cacher la slide actuelle
-                document.getElementById(`storySlide${currentStoryIndex}`).style.display = 'none';
+                document.getElementById(`storySlide${currentStoryIndex}`).classList.remove('active');
                 
                 // Passer à la précédente
                 currentStoryIndex--;
                 
                 // Afficher la nouvelle slide
-                document.getElementById(`storySlide${currentStoryIndex}`).style.display = 'block';
+                document.getElementById(`storySlide${currentStoryIndex}`).classList.add('active');
                 
-                // Jouer la vidéo
-                const currentVideo = document.querySelector(`#storySlide${currentStoryIndex} video`);
-                if (currentVideo) {
-                    currentVideo.currentTime = 0;
-                    currentVideo.play().catch(e => console.log("Autoplay bloqué", e));
+                // Jouer la nouvelle vidéo avec son
+                const prevVideo = document.getElementById(`storyVideo${currentStoryIndex}`);
+                if (prevVideo) {
+                    prevVideo.currentTime = 0;
+                    prevVideo.muted = false;
+                    const playPromise = prevVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log("Autoplay avec son bloqué pour vidéo précédente, tentative avec muted");
+                            prevVideo.muted = true;
+                            prevVideo.play().then(() => {
+                                setTimeout(() => {
+                                    prevVideo.muted = false;
+                                }, 100);
+                            });
+                        });
+                    }
                 }
                 
                 // Démarrer la progression pour cette story
                 startStoryProgress(currentStoryIndex);
-            }
-        }
-        
-        function pauseAllVideos() {
-            for (let i = 1; i <= 5; i++) {
-                const video = document.querySelector(`#storySlide${i} video`);
-                if (video) {
-                    video.pause();
-                }
             }
         }
         
@@ -6377,7 +6458,7 @@
             return labels[eventType] || eventType;
         }
 
-        // ==================== FONCTIONS SUIVI AVEC BARRE DE PROGRESSION ====================
+        // ==================== FONCTIONS SUIVI AVEC BARRE DE PROGRESSION CORRIGÉE ====================
         function openDeliveryTrackerModal() {
             document.getElementById('modalOrderCode').textContent = currentOrderCode;
             document.getElementById('modalConfirmationCode').textContent = currentConfirmationCode;
@@ -6412,17 +6493,34 @@
             // Réinitialiser la progression
             currentDeliveryProgress = 0;
             
-            // Réinitialiser les étapes
-            const steps = ['step1', 'step2', 'step3', 'step4'];
-            steps.forEach(step => {
-                document.getElementById(step).className = 'step-icon';
-                document.getElementById(step).innerHTML = step.charAt(step.length - 1);
-                document.querySelector(`.step-label:nth-child(${step.charAt(step.length - 1)})`).className = 'step-label';
-            });
+            // Réinitialiser les étapes pour la section principale
+            document.getElementById('step1').className = 'step-icon';
+            document.getElementById('step2').className = 'step-icon';
+            document.getElementById('step3').className = 'step-icon';
+            document.getElementById('step4').className = 'step-icon';
+            document.getElementById('step1').innerHTML = '1';
+            document.getElementById('step2').innerHTML = '2';
+            document.getElementById('step3').innerHTML = '3';
+            document.getElementById('step4').innerHTML = '4';
+            
+            // Réinitialiser les étiquettes
+            const stepLabels = document.querySelectorAll('.progress-steps .step-label');
+            stepLabels[0].className = 'step-label';
+            stepLabels[1].className = 'step-label';
+            stepLabels[2].className = 'step-label';
+            stepLabels[3].className = 'step-label';
+            stepLabels[0].textContent = 'Commande';
+            stepLabels[1].textContent = 'Préparation';
+            stepLabels[2].textContent = 'En route';
+            stepLabels[3].textContent = 'Livré';
             
             // Marquer la première étape comme terminée
             document.getElementById('step1').className = 'step-icon completed';
-            document.querySelector('.step-label:nth-child(1)').className = 'step-label completed';
+            stepLabels[0].className = 'step-label completed';
+            
+            // Mettre à jour le statut
+            document.getElementById('deliveryStatus').textContent = 'En préparation';
+            document.getElementById('driverETA').textContent = `📍 ETA: ${currentDeliveryTime}`;
             
             // Démarrer le suivi
             deliveryTrackingInterval = setInterval(() => {
@@ -6435,9 +6533,9 @@
                     document.getElementById('step2').className = 'step-icon completed';
                     document.getElementById('step3').className = 'step-icon completed';
                     document.getElementById('step4').className = 'step-icon completed';
-                    document.querySelector('.step-label:nth-child(2)').className = 'step-label completed';
-                    document.querySelector('.step-label:nth-child(3)').className = 'step-label completed';
-                    document.querySelector('.step-label:nth-child(4)').className = 'step-label completed';
+                    stepLabels[1].className = 'step-label completed';
+                    stepLabels[2].className = 'step-label completed';
+                    stepLabels[3].className = 'step-label completed';
                     
                     // Mettre à jour le statut
                     document.getElementById('deliveryStatus').textContent = 'Livré !';
@@ -6479,19 +6577,19 @@
                 // Mettre à jour les étapes
                 if (currentDeliveryProgress >= 25 && currentDeliveryProgress < 50) {
                     document.getElementById('step2').className = 'step-icon active';
-                    document.querySelector('.step-label:nth-child(2)').className = 'step-label active';
+                    stepLabels[1].className = 'step-label active';
                     document.getElementById('deliveryStatus').textContent = 'En préparation';
                 } else if (currentDeliveryProgress >= 50 && currentDeliveryProgress < 75) {
                     document.getElementById('step2').className = 'step-icon completed';
                     document.getElementById('step3').className = 'step-icon active';
-                    document.querySelector('.step-label:nth-child(2)').className = 'step-label completed';
-                    document.querySelector('.step-label:nth-child(3)').className = 'step-label active';
+                    stepLabels[1].className = 'step-label completed';
+                    stepLabels[2].className = 'step-label active';
                     document.getElementById('deliveryStatus').textContent = 'En route';
                 } else if (currentDeliveryProgress >= 75) {
                     document.getElementById('step3').className = 'step-icon completed';
                     document.getElementById('step4').className = 'step-icon active';
-                    document.querySelector('.step-label:nth-child(3)').className = 'step-label completed';
-                    document.querySelector('.step-label:nth-child(4)').className = 'step-label active';
+                    stepLabels[2].className = 'step-label completed';
+                    stepLabels[3].className = 'step-label active';
                     document.getElementById('deliveryStatus').textContent = 'Arrivée imminente';
                 }
                 
