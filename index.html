@@ -3009,7 +3009,7 @@
                 </div>
             </div>
             
-            <!-- Section SUIVI avec barre de progression -->
+            <!-- Section SUIVI avec barre de progression - CORRIGÉE -->
             <div class="app-card" id="trackerSection">
                 <div class="card-title">
                     <i class="fas fa-shipping-fast"></i>
@@ -3019,13 +3019,13 @@
                 <div class="tracker-container">
                     <div class="driver-avatar">M</div>
                     <div class="tracker-info">
-                        <div class="tracker-status" id="deliveryStatus">En attente</div>
+                        <div class="tracker-status" id="deliveryStatus">En attente de commande</div>
                         <div class="driver-name">Mohamed - Livreur #HDS23</div>
-                        <div class="driver-eta" id="driverETA">📍 Prêt pour livraison</div>
+                        <div class="driver-eta" id="driverETA">📍 Pas de commande active</div>
                     </div>
                 </div>
                 
-                <!-- Barre de progression pour le suivi -->
+                <!-- Barre de progression pour le suivi - Cachée par défaut -->
                 <div class="progress-tracker" id="progressTracker" style="display: none;">
                     <div class="progress-header">
                         <div class="progress-title">Progression de la livraison</div>
@@ -3038,20 +3038,20 @@
                     
                     <div class="progress-steps">
                         <div class="progress-step">
-                            <div class="step-icon completed" id="step1">1</div>
-                            <div class="step-label completed">Commande</div>
+                            <div class="step-icon" id="step1">1</div>
+                            <div class="step-label" id="stepLabel1">Commande</div>
                         </div>
                         <div class="progress-step">
-                            <div class="step-icon active" id="step2">2</div>
-                            <div class="step-label active">Préparation</div>
+                            <div class="step-icon" id="step2">2</div>
+                            <div class="step-label" id="stepLabel2">Préparation</div>
                         </div>
                         <div class="progress-step">
                             <div class="step-icon" id="step3">3</div>
-                            <div class="step-label">En route</div>
+                            <div class="step-label" id="stepLabel3">En route</div>
                         </div>
                         <div class="progress-step">
                             <div class="step-icon" id="step4">4</div>
-                            <div class="step-label">Livré</div>
+                            <div class="step-label" id="stepLabel4">Livré</div>
                         </div>
                     </div>
                     
@@ -3060,15 +3060,21 @@
                     </div>
                 </div>
                 
-                <button class="checkout-button mt-15" id="followDeliveryButton" onclick="openDeliveryTrackerModal()" style="display: none;">
+                <!-- BOUTONS SUIVI CLARIFIÉS -->
+                <button class="checkout-button mt-15" id="viewDeliveryButton" onclick="viewDeliveryDetails()" style="display: none; background: linear-gradient(135deg, #2196F3, #1976D2);">
                     <i class="fas fa-map-marker-alt"></i>
-                    Suivre ma livraison
+                    Voir détails livraison
                 </button>
                 
-                <button class="checkout-button mt-10" id="startTrackerButton" onclick="startRealisticDeliveryTracker()" style="display: none;">
+                <button class="checkout-button mt-10" id="activateTrackingButton" onclick="activateLiveTracking()" style="display: none; background: linear-gradient(135deg, #FF9800, #F57C00);">
                     <i class="fas fa-play"></i>
-                    Démarrer le suivi
+                    Activer le suivi en direct
                 </button>
+                
+                <!-- Message d'information -->
+                <div id="noOrderMessage" style="text-align: center; padding: 15px; color: var(--gray-400); font-size: 13px;">
+                    <i class="fas fa-info-circle"></i> Aucune commande active. Passez une commande pour activer le suivi.
+                </div>
             </div>
             
             <!-- Footer -->
@@ -3381,7 +3387,7 @@
                         <!-- Calendrier de réservation -->
                         <div class="form-group">
                             <label class="form-label">Date de l'événement</label>
-                            <input type="date" name="date_evenement" class="form-datetime" min="<?php echo date('Y-m-d'); ?>" required>
+                            <input type="date" name="date_evenement" class="form-datetime" min="2024-01-01" required>
                         </div>
                         
                         <div class="form-group">
@@ -3491,14 +3497,14 @@
                     Montrez votre code au livreur et préparez le paiement.
                 </p>
                 
-                <button class="checkout-button" onclick="validateAndCloseConfirmation()">
+                <button class="checkout-button" onclick="finalizeOrder()">
                     <i class="fas fa-check"></i>
                     Valider la commande
                 </button>
                 
-                <button class="checkout-button mt-10" style="background: rgba(255,255,255,0.1);" onclick="startRealisticDeliveryTracker()">
+                <button class="checkout-button mt-10" style="background: rgba(255,255,255,0.1);" onclick="viewDeliveryDetails()">
                     <i class="fas fa-shipping-fast"></i>
-                    Suivre la livraison
+                    Voir les détails de livraison
                 </button>
             </div>
         </div>
@@ -3810,15 +3816,15 @@
         </div>
     </div>
     
-    <!-- Delivery Tracker Modal -->
-    <div class="modal-overlay" id="deliveryTrackerModalOverlay">
+    <!-- Delivery Details Modal (anciennement Delivery Tracker Modal) -->
+    <div class="modal-overlay" id="deliveryDetailsModalOverlay">
         <div class="app-modal">
             <div class="modal-header">
                 <div class="modal-title">
                     <i class="fas fa-shipping-fast"></i>
-                    Suivi en direct
+                    Détails de livraison
                 </div>
-                <button class="modal-close" onclick="closeDeliveryTrackerModal()">×</button>
+                <button class="modal-close" onclick="closeDeliveryDetailsModal()">×</button>
             </div>
             <div class="modal-body">
                 <div style="text-align: center; margin-bottom: 20px;">
@@ -3858,20 +3864,20 @@
                     
                     <div class="progress-steps">
                         <div class="progress-step">
-                            <div class="step-icon completed" id="modalStep1">1</div>
-                            <div class="step-label completed">Commande</div>
+                            <div class="step-icon" id="modalStep1">1</div>
+                            <div class="step-label" id="modalStepLabel1">Commande</div>
                         </div>
                         <div class="progress-step">
-                            <div class="step-icon active" id="modalStep2">2</div>
-                            <div class="step-label active">Préparation</div>
+                            <div class="step-icon" id="modalStep2">2</div>
+                            <div class="step-label" id="modalStepLabel2">Préparation</div>
                         </div>
                         <div class="progress-step">
                             <div class="step-icon" id="modalStep3">3</div>
-                            <div class="step-label">En route</div>
+                            <div class="step-label" id="modalStepLabel3">En route</div>
                         </div>
                         <div class="progress-step">
                             <div class="step-icon" id="modalStep4">4</div>
-                            <div class="step-label">Livré</div>
+                            <div class="step-label" id="modalStepLabel4">Livré</div>
                         </div>
                     </div>
                     
@@ -3898,12 +3904,12 @@
                     </ul>
                 </div>
                 
-                <button class="checkout-button" onclick="startRealisticDeliveryTracker()">
+                <button class="checkout-button" onclick="activateLiveTracking()" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
                     <i class="fas fa-play"></i>
-                    Démarrer le suivi
+                    Activer le suivi en direct
                 </button>
                 
-                <button class="checkout-button mt-10" style="background: var(--gray-600);" onclick="closeDeliveryTrackerModal()">
+                <button class="checkout-button mt-10" style="background: var(--gray-600);" onclick="closeDeliveryDetailsModal()">
                     <i class="fas fa-times"></i>
                     Fermer
                 </button>
@@ -3988,6 +3994,7 @@
         let menuOpen = false;
         let deliveryTrackingInterval = null;
         let currentDeliveryProgress = 0;
+        let hasActiveOrder = false; // Nouvelle variable pour suivre l'état de la commande
         
         // Variables pour les suppléments
         let selectedSupplements = [];
@@ -4511,7 +4518,7 @@
             initDeliveryMap();
             initEventListeners();
             loadCartFromStorage();
-            checkActiveOrder();
+            checkActiveOrder(); // Vérifie s'il y a une commande active
             initPayPal();
             checkClientStatus();
             initAccountButton();
@@ -4531,6 +4538,9 @@
             setTimeout(() => {
                 addNotification('🍢 Nouveaux Menus Brochettes !', 'Découvrez nos menus à partir de 11,90€ avec suppléments disponibles');
             }, 5000);
+            
+            // Mettre à jour l'affichage du suivi en fonction de la commande active
+            updateTrackingDisplay();
         });
 
         // ==================== FONCTIONS DE NAVIGATION PAR SECTIONS ====================
@@ -5659,7 +5669,7 @@
                     .addTo(deliveryMap)
                     .bindPopup(`
                         <b>H.D.S SHOP Événements</b><br>
-                        <small>📍 2 boulevard boulevard de casanova</small>
+                        <small>📍 134 avenue de Saint-Antoine, 13015 Marseille</small>
                     `)
                     .openPopup();
                 
@@ -6341,7 +6351,7 @@
             }, 300);
         }
         
-        function validateAndCloseConfirmation() {
+        function finalizeOrder() {
             // 1. Calculer les frais réels avec l'adresse et type d'événement
             const hasEvent = cartContainsEvent();
             const addressInput = hasEvent ? 
@@ -6410,38 +6420,40 @@
             const pointsEarned = Math.floor(totalWithDelivery);
             addLoyaltyPoints(pointsEarned);
             
-            // 9. Vider le panier
+            // 9. VIDER LE PANIER (CORRECTION ICI - suppression des produits)
             cart = [];
             updateCart();
             saveCartToStorage();
             
-            // 10. Afficher le bouton de suivi
-            document.getElementById('followDeliveryButton').style.display = 'block';
-            document.getElementById('startTrackerButton').style.display = 'block';
-            document.getElementById('progressTracker').style.display = 'block';
+            // 10. Activer la commande
+            hasActiveOrder = true;
             
-            // 11. Mettre à jour le statut
-            const hasEventBool = localStorage.getItem('hds_shop_has_event') === 'true';
-            document.getElementById('deliveryStatus').textContent = hasEventBool ? 'Événement planifié' : 'En route';
-            document.getElementById('deliveryStatus').style.background = hasEventBool ? 'rgba(156,39,176,0.2)' : 'rgba(255, 152, 0, 0.2)';
-            document.getElementById('deliveryStatus').style.color = hasEventBool ? '#9C27B0' : '#FF9800';
-            document.getElementById('deliveryStatus').style.borderColor = hasEventBool ? 'rgba(156,39,176,0.3)' : 'rgba(255, 152, 0, 0.3)';
+            // 11. Mettre à jour l'affichage du suivi
+            updateTrackingDisplay();
             
-            if (hasEventBool) {
+            // 12. Mettre à jour le statut
+            document.getElementById('deliveryStatus').textContent = 'Commande confirmée';
+            document.getElementById('deliveryStatus').style.background = 'rgba(76, 175, 80, 0.2)';
+            document.getElementById('deliveryStatus').style.color = '#4CAF50';
+            
+            if (hasEvent) {
                 document.getElementById('driverETA').textContent = `🎊 Événement planifié • ${getEventLabel(eventType)}`;
             } else {
                 document.getElementById('driverETA').textContent = `📍 ETA: ${currentDeliveryTime}`;
             }
             
-            // 12. Fermer le modal
+            // 13. Fermer le modal
             closeConfirmation();
             
-            // 13. Afficher notification
+            // 14. Afficher notification
             let feeMessage = deliveryCost === 0 ? 'Livraison gratuite' : `Frais: ${deliveryCost}€`;
             let discountMessage = discount > 0 ? ` • Économie: ${discount.toFixed(2)}€` : '';
-            let eventMessage = hasEventBool ? ` • Événement: ${getEventLabel(eventType)}` : '';
+            let eventMessage = hasEvent ? ` • Événement: ${getEventLabel(eventType)}` : '';
             let pointsMessage = ` • Points: +${pointsEarned}`;
             showAlert(`✅ Commande confirmée ! Code: ${currentConfirmationCode} • ${feeMessage}${discountMessage}${eventMessage}${pointsMessage}`);
+            
+            // 15. Notification de suivi disponible
+            addNotification('📦 Commande confirmée', `Code: ${currentConfirmationCode} - Vous pouvez maintenant suivre votre livraison.`);
         }
         
         function getEventLabel(eventType) {
@@ -6459,18 +6471,82 @@
         }
 
         // ==================== FONCTIONS SUIVI AVEC BARRE DE PROGRESSION CORRIGÉE ====================
-        function openDeliveryTrackerModal() {
+        
+        function updateTrackingDisplay() {
+            // Vérifie s'il y a une commande active
+            if (localStorage.getItem('hds_shop_order_confirmed') === 'true' && hasActiveOrder) {
+                // Afficher les éléments de suivi
+                document.getElementById('progressTracker').style.display = 'block';
+                document.getElementById('viewDeliveryButton').style.display = 'block';
+                document.getElementById('activateTrackingButton').style.display = 'block';
+                document.getElementById('noOrderMessage').style.display = 'none';
+                
+                // Charger les informations
+                currentOrderCode = localStorage.getItem('hds_shop_order_code') || 'CMD-' + Math.floor(10000 + Math.random() * 90000);
+                currentConfirmationCode = localStorage.getItem('hds_shop_confirmation_code') || 'HDS-' + Math.floor(1000 + Math.random() * 9000);
+                currentDriverName = localStorage.getItem('hds_shop_driver_name') || 'Mohamed';
+                currentDriverPhone = localStorage.getItem('hds_shop_driver_phone') || '06 ** ** ** **';
+                currentDeliveryTime = localStorage.getItem('hds_shop_delivery_time') || '35 minutes';
+                
+                // Mettre à jour le statut
+                const hasEvent = localStorage.getItem('hds_shop_has_event') === 'true';
+                const eventType = localStorage.getItem('hds_shop_event_type');
+                
+                if (hasEvent) {
+                    document.getElementById('deliveryStatus').textContent = 'Événement planifié';
+                    document.getElementById('deliveryStatus').style.background = 'rgba(156,39,176,0.2)';
+                    document.getElementById('deliveryStatus').style.color = '#9C27B0';
+                    document.getElementById('deliveryStatus').style.borderColor = 'rgba(156,39,176,0.3)';
+                    document.getElementById('driverETA').textContent = `🎊 Événement planifié • ${getEventLabel(eventType)}`;
+                } else {
+                    document.getElementById('deliveryStatus').textContent = 'En attente de préparation';
+                    document.getElementById('driverETA').textContent = `📍 ETA: ${currentDeliveryTime}`;
+                }
+                
+                // Réinitialiser la progression
+                resetProgressSteps();
+                
+            } else {
+                // Cacher les éléments de suivi
+                document.getElementById('progressTracker').style.display = 'none';
+                document.getElementById('viewDeliveryButton').style.display = 'none';
+                document.getElementById('activateTrackingButton').style.display = 'none';
+                document.getElementById('noOrderMessage').style.display = 'block';
+                
+                // Réinitialiser le statut
+                document.getElementById('deliveryStatus').textContent = 'En attente de commande';
+                document.getElementById('deliveryStatus').style.background = 'rgba(255, 152, 0, 0.2)';
+                document.getElementById('deliveryStatus').style.color = '#FF9800';
+                document.getElementById('driverETA').textContent = '📍 Pas de commande active';
+            }
+        }
+        
+        function resetProgressSteps() {
+            // Réinitialiser toutes les étapes
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`step${i}`).className = 'step-icon';
+                document.getElementById(`step${i}`).innerHTML = i;
+                document.getElementById(`stepLabel${i}`).className = 'step-label';
+            }
+            
+            document.getElementById('progressBar').style.width = '0%';
+            document.getElementById('progressPercentage').textContent = '0%';
+            document.getElementById('estimatedTime').textContent = currentDeliveryTime || '--';
+        }
+        
+        function viewDeliveryDetails() {
+            // Ouvrir le modal des détails de livraison
             document.getElementById('modalOrderCode').textContent = currentOrderCode;
             document.getElementById('modalConfirmationCode').textContent = currentConfirmationCode;
             document.getElementById('modalDriverName').textContent = currentDriverName;
             document.getElementById('modalDriverPhone').textContent = currentDriverPhone;
             document.getElementById('modalDeliveryTime').textContent = currentDeliveryTime;
             
-            // Réinitialiser la barre de progression
+            // Réinitialiser la barre de progression dans le modal
             document.getElementById('modalProgressBar').style.width = '0%';
             document.getElementById('modalProgressPercentage').textContent = '0%';
             
-            document.getElementById('deliveryTrackerModalOverlay').classList.add('active');
+            document.getElementById('deliveryDetailsModalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
             
             // Fermer le menu si ouvert
@@ -6479,12 +6555,12 @@
             }
         }
         
-        function closeDeliveryTrackerModal() {
-            document.getElementById('deliveryTrackerModalOverlay').classList.remove('active');
+        function closeDeliveryDetailsModal() {
+            document.getElementById('deliveryDetailsModalOverlay').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
         
-        function startRealisticDeliveryTracker() {
+        function activateLiveTracking() {
             // Arrêter tout suivi en cours
             if (deliveryTrackingInterval) {
                 clearInterval(deliveryTrackingInterval);
@@ -6494,29 +6570,27 @@
             currentDeliveryProgress = 0;
             
             // Réinitialiser les étapes pour la section principale
-            document.getElementById('step1').className = 'step-icon';
-            document.getElementById('step2').className = 'step-icon';
-            document.getElementById('step3').className = 'step-icon';
-            document.getElementById('step4').className = 'step-icon';
-            document.getElementById('step1').innerHTML = '1';
-            document.getElementById('step2').innerHTML = '2';
-            document.getElementById('step3').innerHTML = '3';
-            document.getElementById('step4').innerHTML = '4';
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`step${i}`).className = 'step-icon';
+                document.getElementById(`step${i}`).innerHTML = i;
+                document.getElementById(`stepLabel${i}`).className = 'step-label';
+            }
             
-            // Réinitialiser les étiquettes
-            const stepLabels = document.querySelectorAll('.progress-steps .step-label');
-            stepLabels[0].className = 'step-label';
-            stepLabels[1].className = 'step-label';
-            stepLabels[2].className = 'step-label';
-            stepLabels[3].className = 'step-label';
-            stepLabels[0].textContent = 'Commande';
-            stepLabels[1].textContent = 'Préparation';
-            stepLabels[2].textContent = 'En route';
-            stepLabels[3].textContent = 'Livré';
+            // Réinitialiser les étapes du modal
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`modalStep${i}`).className = 'step-icon';
+                document.getElementById(`modalStep${i}`).innerHTML = i;
+                document.getElementById(`modalStepLabel${i}`).className = 'step-label';
+            }
             
-            // Marquer la première étape comme terminée
+            // Marquer la première étape comme terminée (commande confirmée)
             document.getElementById('step1').className = 'step-icon completed';
-            stepLabels[0].className = 'step-label completed';
+            document.getElementById('step1').innerHTML = '';
+            document.getElementById('stepLabel1').className = 'step-label completed';
+            
+            document.getElementById('modalStep1').className = 'step-icon completed';
+            document.getElementById('modalStep1').innerHTML = '';
+            document.getElementById('modalStepLabel1').className = 'step-label completed';
             
             // Mettre à jour le statut
             document.getElementById('deliveryStatus').textContent = 'En préparation';
@@ -6530,12 +6604,15 @@
                     clearInterval(deliveryTrackingInterval);
                     
                     // Marquer toutes les étapes comme terminées
-                    document.getElementById('step2').className = 'step-icon completed';
-                    document.getElementById('step3').className = 'step-icon completed';
-                    document.getElementById('step4').className = 'step-icon completed';
-                    stepLabels[1].className = 'step-label completed';
-                    stepLabels[2].className = 'step-label completed';
-                    stepLabels[3].className = 'step-label completed';
+                    for (let i = 1; i <= 4; i++) {
+                        document.getElementById(`step${i}`).className = 'step-icon completed';
+                        document.getElementById(`step${i}`).innerHTML = '';
+                        document.getElementById(`stepLabel${i}`).className = 'step-label completed';
+                        
+                        document.getElementById(`modalStep${i}`).className = 'step-icon completed';
+                        document.getElementById(`modalStep${i}`).innerHTML = '';
+                        document.getElementById(`modalStepLabel${i}`).className = 'step-label completed';
+                    }
                     
                     // Mettre à jour le statut
                     document.getElementById('deliveryStatus').textContent = 'Livré !';
@@ -6544,17 +6621,24 @@
                     document.getElementById('deliveryStatus').style.borderColor = 'rgba(76,175,80,0.3)';
                     document.getElementById('driverETA').textContent = '✅ Livraison terminée';
                     
-                    // Cacher les boutons
-                    document.getElementById('followDeliveryButton').style.display = 'none';
-                    document.getElementById('startTrackerButton').style.display = 'none';
+                    // Cacher les boutons de suivi actif
+                    document.getElementById('activateTrackingButton').style.display = 'none';
+                    document.getElementById('viewDeliveryButton').style.display = 'block';
                     
                     // Notification
                     showAlert('✅ Livraison effectuée ! Merci pour votre commande.');
                     
-                    // Effacer les données de commande
-                    localStorage.removeItem('hds_shop_order_confirmed');
-                    localStorage.removeItem('hds_shop_order_code');
-                    localStorage.removeItem('hds_shop_confirmation_code');
+                    // Ajouter une notification
+                    addNotification('✅ Livraison terminée', 'Votre commande a été livrée avec succès. Merci !');
+                    
+                    // Effacer les données de commande après un délai
+                    setTimeout(() => {
+                        localStorage.removeItem('hds_shop_order_confirmed');
+                        localStorage.removeItem('hds_shop_order_code');
+                        localStorage.removeItem('hds_shop_confirmation_code');
+                        hasActiveOrder = false;
+                        updateTrackingDisplay();
+                    }, 300000); // 5 minutes après livraison
                     
                     return;
                 }
@@ -6576,33 +6660,69 @@
                 
                 // Mettre à jour les étapes
                 if (currentDeliveryProgress >= 25 && currentDeliveryProgress < 50) {
+                    // Étape 2 active (préparation)
                     document.getElementById('step2').className = 'step-icon active';
-                    stepLabels[1].className = 'step-label active';
+                    document.getElementById('step2').innerHTML = '2';
+                    document.getElementById('stepLabel2').className = 'step-label active';
+                    
+                    document.getElementById('modalStep2').className = 'step-icon active';
+                    document.getElementById('modalStep2').innerHTML = '2';
+                    document.getElementById('modalStepLabel2').className = 'step-label active';
+                    
                     document.getElementById('deliveryStatus').textContent = 'En préparation';
+                    
                 } else if (currentDeliveryProgress >= 50 && currentDeliveryProgress < 75) {
+                    // Étape 2 complétée, étape 3 active (en route)
                     document.getElementById('step2').className = 'step-icon completed';
+                    document.getElementById('step2').innerHTML = '';
+                    document.getElementById('stepLabel2').className = 'step-label completed';
+                    
                     document.getElementById('step3').className = 'step-icon active';
-                    stepLabels[1].className = 'step-label completed';
-                    stepLabels[2].className = 'step-label active';
+                    document.getElementById('step3').innerHTML = '3';
+                    document.getElementById('stepLabel3').className = 'step-label active';
+                    
+                    document.getElementById('modalStep2').className = 'step-icon completed';
+                    document.getElementById('modalStep2').innerHTML = '';
+                    document.getElementById('modalStepLabel2').className = 'step-label completed';
+                    
+                    document.getElementById('modalStep3').className = 'step-icon active';
+                    document.getElementById('modalStep3').innerHTML = '3';
+                    document.getElementById('modalStepLabel3').className = 'step-label active';
+                    
                     document.getElementById('deliveryStatus').textContent = 'En route';
+                    
                 } else if (currentDeliveryProgress >= 75) {
+                    // Étape 3 complétée, étape 4 active (arrivée imminente)
                     document.getElementById('step3').className = 'step-icon completed';
+                    document.getElementById('step3').innerHTML = '';
+                    document.getElementById('stepLabel3').className = 'step-label completed';
+                    
                     document.getElementById('step4').className = 'step-icon active';
-                    stepLabels[2].className = 'step-label completed';
-                    stepLabels[3].className = 'step-label active';
+                    document.getElementById('step4').innerHTML = '4';
+                    document.getElementById('stepLabel4').className = 'step-label active';
+                    
+                    document.getElementById('modalStep3').className = 'step-icon completed';
+                    document.getElementById('modalStep3').innerHTML = '';
+                    document.getElementById('modalStepLabel3').className = 'step-label completed';
+                    
+                    document.getElementById('modalStep4').className = 'step-icon active';
+                    document.getElementById('modalStep4').innerHTML = '4';
+                    document.getElementById('modalStepLabel4').className = 'step-label active';
+                    
                     document.getElementById('deliveryStatus').textContent = 'Arrivée imminente';
                 }
                 
             }, 300);
             
-            // Fermer le modal du suivi s'il est ouvert
-            closeDeliveryTrackerModal();
+            // Fermer le modal des détails s'il est ouvert
+            closeDeliveryDetailsModal();
             
             // Afficher la section tracker
             scrollToSection('tracker');
             
             // Notification de départ
-            showAlert('🚗 Suivi de livraison démarré !');
+            showAlert('🚗 Suivi de livraison activé !');
+            addNotification('🚗 Suivi activé', 'Vous pouvez maintenant suivre votre commande en temps réel.');
         }
         
         // ==================== ÉVÉNEMENTS ====================
@@ -6677,8 +6797,8 @@
                 if (e.target === this) closeAccountModal();
             });
             
-            document.getElementById('deliveryTrackerModalOverlay').addEventListener('click', function(e) {
-                if (e.target === this) closeDeliveryTrackerModal();
+            document.getElementById('deliveryDetailsModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeDeliveryDetailsModal();
             });
             
             window.addEventListener('resize', function() {
@@ -6707,30 +6827,11 @@
         
         function checkActiveOrder() {
             if (localStorage.getItem('hds_shop_order_confirmed') === 'true') {
-                document.getElementById('followDeliveryButton').style.display = 'block';
-                document.getElementById('startTrackerButton').style.display = 'block';
-                document.getElementById('progressTracker').style.display = 'block';
-                
-                currentOrderCode = localStorage.getItem('hds_shop_order_code') || 'CMD-' + Math.floor(10000 + Math.random() * 90000);
-                currentConfirmationCode = localStorage.getItem('hds_shop_confirmation_code') || 'HDS-' + Math.floor(1000 + Math.random() * 9000);
-                currentDriverName = localStorage.getItem('hds_shop_driver_name') || 'Mohamed';
-                currentDriverPhone = localStorage.getItem('hds_shop_driver_phone') || '06 ** ** ** **';
-                currentDeliveryTime = localStorage.getItem('hds_shop_delivery_time') || '35 minutes';
-                
-                // Mettre à jour le statut
-                const hasEvent = localStorage.getItem('hds_shop_has_event') === 'true';
-                const eventType = localStorage.getItem('hds_shop_event_type');
-                
-                if (hasEvent) {
-                    document.getElementById('deliveryStatus').textContent = 'Événement planifié';
-                    document.getElementById('deliveryStatus').style.background = 'rgba(156,39,176,0.2)';
-                    document.getElementById('deliveryStatus').style.color = '#9C27B0';
-                    document.getElementById('deliveryStatus').style.borderColor = 'rgba(156,39,176,0.3)';
-                    document.getElementById('driverETA').textContent = `🎊 Événement planifié • ${getEventLabel(eventType)}`;
-                } else {
-                    document.getElementById('deliveryStatus').textContent = 'En route';
-                    document.getElementById('driverETA').textContent = `📍 ETA: ${currentDeliveryTime}`;
-                }
+                hasActiveOrder = true;
+                updateTrackingDisplay();
+            } else {
+                hasActiveOrder = false;
+                updateTrackingDisplay();
             }
         }
         
